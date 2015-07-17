@@ -11,7 +11,7 @@ public class ZoombaSpawner : MonoBehaviour
 
 	void Start () 
 	{
-	
+		spawner = this;
 	}
 	
 	void Update () 

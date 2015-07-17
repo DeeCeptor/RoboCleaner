@@ -32,5 +32,6 @@ public class Scoreboard : MonoBehaviour
 	void OnGUI() 
 	{
 		GUI.Label(new Rect(10, 10, 150, 100), "Score " + score);
+		GUI.Label(new Rect(10, 30, 150, 100), "Lives " + lives);
 	}
 }
