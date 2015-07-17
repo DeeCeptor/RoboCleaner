@@ -27,11 +27,21 @@ public class PlayerController : MonoBehaviour
 		if (isInvulnerable())
 			invulnerability -= Time.deltaTime;
 
-
 		float rotation = -Input.GetAxis("Horizontal");
 		float acceleration = Input.GetAxis("Vertical");
 
-		// Are we braking? If so, don't take any input
+		// Ship rotation
+		if (rotation != 0) {
+			//GetComponent<Rigidbody2D>().AddTorque(rotation * rotationForce * movementFactor);
+			//GetComponent<Rigidbody2D>().angularVelocity = rotation * rotationForce;
+			transform.Rotate (Vector3.forward * rotation * rotationForce * movementFactor);
+		}
+		else {
+			GetComponent<Rigidbody2D>().angularVelocity = 0;
+		}
+
+
+		// Are we braking? If so, don't take any acceleration
 		if (Input.GetButton("Brake"))
 		{
 			GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * brakeFactor;
@@ -48,16 +58,6 @@ public class PlayerController : MonoBehaviour
 			{
 				colliderArt.SetActive(false);
 				movementFactor = 1;
-			}
-			
-			// Ship rotation
-			if (rotation != 0) {
-				//GetComponent<Rigidbody2D>().AddTorque(rotation * rotationForce * movementFactor);
-				//GetComponent<Rigidbody2D>().angularVelocity = rotation * rotationForce;
-				transform.Rotate (Vector3.forward * rotation * rotationForce * movementFactor);
-			}
-			else {
-				GetComponent<Rigidbody2D>().angularVelocity = 0;
 			}
 			
 			// Ship acceleration

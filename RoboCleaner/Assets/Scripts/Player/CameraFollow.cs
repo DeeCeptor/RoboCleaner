@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour {
 	void Update () 
 	{
 		// Follow only with x y axes. Not rotation.
-		if (transform.gameObject != null)
+		if (target != null)
 		{
 			this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, this.transform.position.z);
 		}
