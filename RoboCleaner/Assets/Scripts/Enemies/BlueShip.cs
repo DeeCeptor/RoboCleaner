@@ -14,20 +14,6 @@ public class BlueShip : RedShip{
 		}
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{
-			if(moveDir == 1){
-				moveDir = 2;
-			}
-			if(moveDir == 2){
-				moveDir = 1;
-			}
-			if(moveDir == 3){
-				moveDir = 4;
-			}
-			if(moveDir == 4){
-				moveDir = 3;
-			}
-			moveTimer = Time.time + 8f;
-			hitWall = true;
 		}
 		
 	}

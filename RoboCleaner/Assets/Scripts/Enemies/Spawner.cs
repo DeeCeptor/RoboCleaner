@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour {
 	public Transform BottomWall;
 	public Transform RightWall;
 	public Transform LeftWall;
-	private float spawnDelay = 10f;
+	private float spawnDelay = 2.5f;
 	public float spawnTimer = 0f;
 	// Use this for initialization
 	void Start () {
@@ -44,6 +44,10 @@ public class Spawner : MonoBehaviour {
 				{
 					Instantiate (blueShips[Random.Range(0,redShips.Length-1)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 				}
+			}
+			if(spawnDelay>0.25f)
+			{
+			spawnDelay = spawnDelay - 0.1f;
 			}
 		}
 	

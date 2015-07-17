@@ -54,19 +54,17 @@ public int health = 100;
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{
 			if(moveDir == 1){
-				moveDir = 2;
+				GetComponent<Rigidbody2D>().velocity = new Vector2(0,-speed);
 			}
 			if(moveDir == 2){
-				moveDir = 1;
+				GetComponent<Rigidbody2D>().velocity = new Vector2(0,speed);
 			}
 			if(moveDir == 3){
-				moveDir = 4;
+				GetComponent<Rigidbody2D>().velocity = new Vector2(-speed,0);
 			}
 			if(moveDir == 4){
-				moveDir = 3;
+				GetComponent<Rigidbody2D>().velocity = new Vector2(speed,0);
 			}
-			moveTimer = Time.time + 8f;
-			hitWall = true;
 		}
 		
 	}
