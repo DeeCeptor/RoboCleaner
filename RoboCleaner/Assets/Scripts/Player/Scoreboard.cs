@@ -5,7 +5,9 @@ public class Scoreboard : MonoBehaviour
 {
 	public static Scoreboard board;
 
+	public int lives = 4;	// How many lives we got. Can't revive if we're out of lives.
 	private int score;	// Value >= 0
+
 
 	void Start () 
 	{

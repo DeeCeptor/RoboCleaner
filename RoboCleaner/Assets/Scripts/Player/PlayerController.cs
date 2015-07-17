@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 	private float movementFactor = 1;	// Applied to acceleration and rotation. Are we using our full engine force?
 	private GameObject colliderArt;
 
+	private float invulnerability = 0;	// Amount of time we're invulnerable for. If above 0, we're invulnerable
+
+
 	void Start () 
 	{
 		colliderArt = this.transform.Find("Collider/ColliderArt").gameObject;
@@ -20,6 +23,11 @@ public class PlayerController : MonoBehaviour
 
 	void Update () 
 	{
+		// Update invulnerability
+		if (isInvulnerable())
+			invulnerability -= Time.deltaTime;
+
+
 		float rotation = -Input.GetAxis("Horizontal");
 		float acceleration = Input.GetAxis("Vertical");
 
@@ -64,16 +72,34 @@ public class PlayerController : MonoBehaviour
 	}
 
 
+	private bool isInvulnerable()
+	{
+		return (invulnerability > 0);
+	}
+	public void makeInvulnerable(float duration)
+	{
+		invulnerability = duration;
+	}
+
+
+	public void TakeHit()
+	{
+		if (!isInvulnerable())
+			Die();	// Hit a bullet, you're dead
+	}
 	public void Die()
 	{
+		// Call to revive or game over
+		ZoombaSpawner.spawner.PlayerDied();
 
+		GameObject.Destroy(this.gameObject);
 	}
 
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer("bullet"))
 		{
-			Die();	// Hit a bullet, you're dead
+			TakeHit();	// We've hit a bullet!
 		}
 	}
 }
