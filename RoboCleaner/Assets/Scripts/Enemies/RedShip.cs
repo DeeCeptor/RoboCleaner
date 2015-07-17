@@ -2,11 +2,12 @@
 using System.Collections;
 
 public class RedShip : MonoBehaviour {
-	private int moveDir = 0;
+	public int moveDir = 0;
 	public float speed = 1f;
-	private float moveTimer = 0f;
+	public float moveTimer = 0f;
 	public int debrisAmount = 5;
 	public Transform debris;
+	public bool hitWall = false;
 public int health = 100;
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public int health = 100;
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(moveTimer <= Time.time){
+		hitWall = false;
 			moveTimer = Time.time + 2f;
 			moveDir = Random.Range(0,4);
 			}
@@ -41,7 +43,7 @@ public int health = 100;
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D otherCollider)
+	void OnTrigger2D(Collider2D otherCollider)
 	{
 		if(otherCollider.gameObject.tag == "blueBullet" && otherCollider.gameObject.layer == 13)
 		{
@@ -49,7 +51,24 @@ public int health = 100;
 			health = health - attack.attackDamage;
 			Instantiate (debris,transform.position, transform.rotation);
 		}
-
+		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
+		{
+			if(moveDir == 1){
+				moveDir = 2;
+			}
+			if(moveDir == 2){
+				moveDir = 1;
+			}
+			if(moveDir == 3){
+				moveDir = 4;
+			}
+			if(moveDir == 4){
+				moveDir = 3;
+			}
+			moveTimer = Time.time + 8f;
+			hitWall = true;
+		}
+		
 	}
 
 	public void Die()
