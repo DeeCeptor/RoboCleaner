@@ -3,7 +3,7 @@ using System.Collections;
 //should  work now
 
 public class BulletScript : MonoBehaviour {
-	public float speed = 8f;
+	public float speed = 4f;
 	public Vector3 target;
 	private bool dead = false;
 	Vector2 dir = new Vector2(0,0);
@@ -28,7 +28,7 @@ public class BulletScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{
-		if(otherCollider.gameObject.layer != layerIgnore)
+		if(otherCollider.gameObject.layer != layerIgnore && otherCollider.gameObject.layer != 13)
 		{
 			dead = true;
 		}

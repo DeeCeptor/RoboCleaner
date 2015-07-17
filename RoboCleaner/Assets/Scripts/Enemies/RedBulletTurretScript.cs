@@ -15,7 +15,7 @@ public class RedBulletTurretScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(attackTimer <= Time.time){
-			attackTimer = Time.time + 0.5f;
+			attackTimer = Time.time + 2f;
 			Transform attack = null;
 			attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 			BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();

@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
+  - 114: {fileID: 11462360}
   m_Layer: 8
   m_Name: Red
   m_TagString: red
@@ -96,13 +97,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0146882b206cc4848be8ab24bb8da000, type: 3}
+  m_Script: {fileID: 11500000, guid: 21f3c7c13a902ee4a8d8862bc89e5328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList: []
   enemyTarget: {fileID: 0}
-  attackType: {fileID: 0}
+  attackType: {fileID: 400000, guid: d2399c29dfcef5443a8d908aae0ee27e, type: 2}
   range: 100
+--- !u!114 &11462360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe9b33a1c447f64d8fc718030d7614f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  health: 100
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

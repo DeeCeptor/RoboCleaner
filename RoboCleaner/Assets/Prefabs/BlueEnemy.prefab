@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList: []
   enemyTarget: {fileID: 0}
-  attackType: {fileID: 0}
+  attackType: {fileID: 499750, guid: bfc0e5f795b63e740aebd1ec78be76ee, type: 2}
   range: 100
 --- !u!212 &21200000
 SpriteRenderer:

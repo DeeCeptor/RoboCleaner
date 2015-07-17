@@ -12,9 +12,9 @@ GameObject:
   - 50: {fileID: 5025902}
   - 58: {fileID: 5897490}
   - 114: {fileID: 11433688}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: BlueBullet
-  m_TagString: Untagged
+  m_TagString: blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 130908}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117b41523a91e3745afb4ca216c6bcec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 2
   target: {x: 0, y: 0, z: 0}
   layerIgnore: 9
 --- !u!212 &21249454
