@@ -2,16 +2,33 @@
 using System.Collections;
 using GameJolt.API.Objects;
 
-public class Menu : MonoBehaviour {
-
+public class Menu : MonoBehaviour 
+{
+	bool isSignedIn = false;
 	void Start () 
 	{
-		bool isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
+		isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
 		Debug.Log("Signed in? " + isSignedIn);
 
-		GameJolt.API.Objects.User user = new GameJolt.API.Objects.User("DeeCeptor", "Quadruple4");
-		user.SignIn(signInCallback);
-		//GameJolt.UI.Manager.Instance.ShowSignIn(signInCallback); 
+		//GameJolt.API.Objects.User user = new GameJolt.API.Objects.User("DeeCeptor", "Quadruple4");
+		//user.SignIn(signInCallback);
+	}
+
+	void SignIn()
+	{
+		GameJolt.UI.Manager.Instance.ShowSignIn(signInCallback); 
+	}
+	void ShowLeaderboards()
+	{
+		GameJolt.UI.Manager.Instance.ShowLeaderboards();
+	}
+	void StartGame()
+	{
+		Application.LoadLevel ("KevinLevel");
+	}
+	void HowToPlay()
+	{
+		Application.LoadLevel ("OtherLevel");
 	}
 
 	public void signInCallback(bool success)
@@ -19,6 +36,7 @@ public class Menu : MonoBehaviour {
 		if (success) 
 		{
 			Debug.Log("The user signed in!");
+			isSignedIn = true;
 		}
 		else
 		{
@@ -35,8 +53,21 @@ public class Menu : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (GUI.Button(new Rect(10,10,50,50), "Show Leaderboard"))
-			GameJolt.UI.Manager.Instance.ShowLeaderboards();
-
+		if (!isSignedIn)
+		{
+			if (GUI.Button(new Rect(300,100,200,50), "Sign into Gamejolt"))
+				SignIn();
+			if (GUI.Button(new Rect(300,200,200,50), "Play as Guest"))
+				isSignedIn = true;
+		}
+		else
+		{
+			if (GUI.Button(new Rect(300,100,200,50), "Start Game"))
+				StartGame();			
+			if (GUI.Button(new Rect(300,200,200,50), "How to Play"))
+				HowToPlay();
+			if (GUI.Button(new Rect(300,300,200,50), "Show Leaderboard"))
+				ShowLeaderboards();
+		}
 	}
 }

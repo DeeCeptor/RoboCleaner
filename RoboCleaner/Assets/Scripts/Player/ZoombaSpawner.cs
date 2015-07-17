@@ -48,10 +48,11 @@ public class ZoombaSpawner : MonoBehaviour
 	IEnumerator GameOver()
 	{
 		Debug.Log("Starting game over sequence");
-
+		Scoreboard.board.submitScore();
 		// Wait a bit before kicking the player out
 		yield return new WaitForSeconds(3f);
 
 		Debug.Log("GAME OVER!");
+		Application.LoadLevel("Menu");
 	}
 }

@@ -5,7 +5,7 @@ public class Scoreboard : MonoBehaviour
 {
 	public static Scoreboard board;
 
-	public int lives = 4;	// How many lives we got. Can't revive if we're out of lives.
+	public int lives = 1;	// How many lives we got. Can't revive if we're out of lives.
 	private int score;	// Value >= 0
 
 
@@ -25,6 +25,17 @@ public class Scoreboard : MonoBehaviour
 	{
 		score += amount;
 		score = Mathf.Max(0, score);	// Score can't go below 0
+	}
+
+
+	public void submitScore()
+	{
+		if (GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
+			GameJolt.API.Scores.Add(score, "Cleared " + score + " pieces of debris", 0, "", submitScoreCallback);	
+	}
+	void submitScoreCallback(bool success)
+	{
+		Debug.Log("Submit Score Callback worked? " + success);
 	}
 
 

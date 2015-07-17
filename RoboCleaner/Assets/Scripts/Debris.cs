@@ -15,7 +15,7 @@ public class Debris : MonoBehaviour
 	
 	void Update () 
 	{
-		if (beingPulled)
+		if (beingPulled && pulledTowards != null)
 		{
 			// Move towards player, the closer they are the more quickly
 			Vector3 diff = this.transform.position - pulledTowards.transform.position;
@@ -34,7 +34,7 @@ public class Debris : MonoBehaviour
 		else if (other.tag == "Player")
 		{
 			// Touchwed player's inner collider, collect points and destroy this!
-			Scoreboard.board.modifyScore(100);
+			Scoreboard.board.modifyScore(1);
 			GameObject.Destroy(this.gameObject);
 		}
 	}
