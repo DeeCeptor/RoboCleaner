@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 			if (rotation != 0) {
 				//GetComponent<Rigidbody2D>().AddTorque(rotation * rotationForce * movementFactor);
 				//GetComponent<Rigidbody2D>().angularVelocity = rotation * rotationForce;
-				transform.Rotate (Vector3.forward * rotation);
+				transform.Rotate (Vector3.forward * rotation * rotationForce * movementFactor);
 			}
 			else {
 				GetComponent<Rigidbody2D>().angularVelocity = 0;
@@ -55,8 +55,10 @@ public class PlayerController : MonoBehaviour
 			// Ship acceleration
 			if (acceleration != 0)
 			{
-				// Accelerating, add force and show boosters firing
+				// Accelerating, add force
 				GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration * accelerationForce * movementFactor);
+
+				// Turn on booster firing, leave trail
 			}
 		}
 	}
