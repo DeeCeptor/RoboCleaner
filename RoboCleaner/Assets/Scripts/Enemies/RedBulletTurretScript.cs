@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletTurretScript : MonoBehaviour {
+public class RedBulletTurretScript : MonoBehaviour {
 	public GameObject[] enemyList;
 	public Transform enemyTarget;
 	private float attackTimer = 0;
@@ -9,7 +9,7 @@ public class BulletTurretScript : MonoBehaviour {
 	public float range = 100f;
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -17,7 +17,7 @@ public class BulletTurretScript : MonoBehaviour {
 		if(attackTimer <= Time.time){
 			attackTimer = Time.time + 0.5f;
 			Transform attack = null;
-			attack = (Transform)Network.Instantiate (attackType,transform.position, transform.rotation,0);
+			attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 			BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();
 			projectile.target = enemyTarget.transform.position;
 		}

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+//should  work now
 
 public class BulletScript : MonoBehaviour {
 	public float speed = 8f;
-	public Vector2 target;
+	public Vector3 target;
 	private bool dead = false;
 	Vector2 dir = new Vector2(0,0);
 	public int layerIgnore = 8;
@@ -18,10 +19,10 @@ public class BulletScript : MonoBehaviour {
 		{
 			dir = target - transform.position;
 		}
-		rigidbody2D.velocity = dir/dir.magnitude * speed;
+		GetComponent<Rigidbody2D>().velocity = dir/dir.magnitude * speed;
 		if(dead == true)
 		{
-			Network.Destroy (gameObject);
+			Destroy (gameObject);
 		}
 	}
 	
