@@ -7,6 +7,8 @@ public class RedBulletTurretScript : MonoBehaviour {
 	private float attackTimer = 0;
 	public Transform attackType;
 	public float range = 100f;
+	public float targetTimer = 0;
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +16,7 @@ public class RedBulletTurretScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(attackTimer <= Time.time && enemyList.Length > 0){
+		if(attackTimer <= Time.time && enemyList.Length > 0 && enemyTarget!=null){
 			if((enemyTarget.transform.position - transform.position).magnitude < range){
 			attackTimer = Time.time + 2f;
 			Transform attack = null;
@@ -29,6 +31,9 @@ public class RedBulletTurretScript : MonoBehaviour {
 	
 	public virtual void findTarget()
 	{
+		if(targetTimer <= Time.time)
+		{
+		targetTimer = targetTimer + 5f;
 		if (enemyList.Length == 0)
 		{
 			enemyList = null;
@@ -52,6 +57,6 @@ public class RedBulletTurretScript : MonoBehaviour {
 		}
 		enemyTarget = enemyList [targetIndex].transform;
 		
-		
+		}
 	}
 }
