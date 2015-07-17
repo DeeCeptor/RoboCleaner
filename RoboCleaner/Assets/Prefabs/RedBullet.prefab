@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11457618}
+  - 114: {fileID: 11466252}
   m_Layer: 13
   m_Name: RedBullet
   m_TagString: red
@@ -73,6 +74,18 @@ MonoBehaviour:
   speed: 2
   target: {x: 0, y: 0, z: 0}
   layerIgnore: 8
+--- !u!114 &11466252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a67bcdc1c1cd8429f8591acc12de1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
