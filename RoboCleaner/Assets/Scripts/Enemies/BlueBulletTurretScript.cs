@@ -14,7 +14,7 @@ public class BlueBulletTurretScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(attackTimer <= Time.time && enemyList !=null){
+		if(attackTimer <= Time.time && enemyList.Length > 0){
 			if((enemyTarget.transform.position.magnitude - transform.position.magnitude) < range){
 				attackTimer = Time.time + 2f;
 				Transform attack = null;
