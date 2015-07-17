@@ -5,12 +5,12 @@ public class Debris : MonoBehaviour
 {
 	private bool beingPulled = false;
 	private GameObject pulledTowards;
-	private float pullSpeedFactor = 1.0f;
+	private float pullSpeedFactor = 0.05f;
 
 
 	void Start () 
 	{
-	
+		
 	}
 	
 	void Update () 
@@ -19,7 +19,7 @@ public class Debris : MonoBehaviour
 		{
 			// Move towards player, the closer they are the more quickly
 			Vector3 diff = this.transform.position - pulledTowards.transform.position;
-			pulledTowards.transform.position += diff / diff.magnitude * pullSpeedFactor;
+			this.transform.position -= diff / diff.magnitude * pullSpeedFactor;
 		}
 	}
 
@@ -34,8 +34,8 @@ public class Debris : MonoBehaviour
 		else if (other.tag == "Player")
 		{
 			// Touchwed player's inner collider, collect points and destroy this!
-			Debug.Log("POINTS!");
-			GameObject.Destroy(this);
+			Scoreboard.board.modifyScore(100);
+			GameObject.Destroy(this.gameObject);
 		}
 	}
 }
