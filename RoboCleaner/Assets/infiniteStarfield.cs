@@ -24,6 +24,8 @@ public class infiniteStarfield : MonoBehaviour {
 
 	private void CreateStars()
 	{
+		points = new ParticleSystem.Particle[starsMax];
+
 		for(int i = 0; i < starsMax; i++)
 		{
 			points[i].position = Random.insideUnitSphere * starDistance + tx.position;
@@ -38,9 +40,9 @@ public class infiniteStarfield : MonoBehaviour {
 
 		for (int i = 0; i < starsMax; i++)
 		{
-			if((points[i]/ImagePosition - tx.position).sqrMagnitude > starDistanceSqr)
+			if((points[i].position - tx.position).sqrMagnitude > starDistanceSqr)
 			{
-				points[i].position = Random.insideUnitSphere = starDistance + tx.position;
+				points[i].position = Random.insideUnitSphere * starDistance + tx.position;
 			}
 			
 			if((points[i].position - tx.position).sqrMagnitude <= starClipDistanceSqr)
