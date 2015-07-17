@@ -14,12 +14,14 @@ public class BlueBulletTurretScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(attackTimer <= Time.time){
-			attackTimer = Time.time + 2f;
-			Transform attack = null;
-			attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
-			BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();
-			projectile.target = enemyTarget.transform.position;
+		if(attackTimer <= Time.time && enemyList !=null){
+			if((enemyTarget.transform.position.magnitude - transform.position.magnitude) < range){
+				attackTimer = Time.time + 2f;
+				Transform attack = null;
+				attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
+				BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();
+				projectile.target = enemyTarget.transform.position;
+			}
 		}
 		enemyList = GameObject.FindGameObjectsWithTag("red");
 		findTarget ();

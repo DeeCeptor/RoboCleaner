@@ -14,12 +14,14 @@ public class BulletTurretScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(attackTimer <= Time.time){
+		if(attackTimer <= Time.time && enemyList !=null){
+			if((enemyTarget.transform.position.magnitude - transform.position.magnitude) < range){
 			attackTimer = Time.time + 0.5f;
 			Transform attack = null;
-			attack = (Transform)Network.Instantiate (attackType,transform.position, transform.rotation,0);
+			attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 			BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();
 			projectile.target = enemyTarget.transform.position;
+			}
 		}
 		enemyList = GameObject.FindGameObjectsWithTag("blue");
 		findTarget ();

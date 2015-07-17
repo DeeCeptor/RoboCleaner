@@ -28,6 +28,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
+  - 114: {fileID: 11487858}
   m_Layer: 9
   m_Name: BlueEnemy
   m_TagString: blue
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.589141369, y: .0841630101, z: -1}
+  m_LocalPosition: {x: -.589999974, y: .0799999982, z: -1}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -96,13 +97,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00faca9aa47759488acc69cdd014872, type: 3}
+  m_Script: {fileID: 11500000, guid: 021edbe00dae34142afca71477ef4d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList: []
   enemyTarget: {fileID: 0}
-  attackType: {fileID: 499750, guid: bfc0e5f795b63e740aebd1ec78be76ee, type: 2}
+  attackType: {fileID: 499750, guid: 9d05449799166724c9a95408f7a1a302, type: 2}
   range: 100
+--- !u!114 &11487858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2926cb076f9c604ba2f56481d1eb3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  debrisAmount: 5
+  debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
+  health: 100
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -8,6 +8,8 @@ TagManager:
   - TractorBeam
   - blue
   - red
+  - blueBullet
+  - redBullet
   layers:
   - Default
   - TransparentFX
