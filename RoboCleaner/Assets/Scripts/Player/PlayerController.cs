@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
 	public void Die()
 	{
 		// Call to revive or game over
+		Debug.Log("Died");
 		ZoombaSpawner.spawner.PlayerDied();
 
 		GameObject.Destroy(this.gameObject);
