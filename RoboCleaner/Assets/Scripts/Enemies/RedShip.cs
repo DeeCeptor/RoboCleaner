@@ -10,7 +10,7 @@ public int health = 100;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 	}
 }
