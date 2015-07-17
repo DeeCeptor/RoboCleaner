@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66a1719813f919438ef5f1291510aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoombaToSpawn: {fileID: 0}
+  ZoombaToSpawn: {fileID: 142042, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
