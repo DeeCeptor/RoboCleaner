@@ -62,4 +62,18 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
+
+
+	public void Die()
+	{
+
+	}
+
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.layer == LayerMask.NameToLayer("bullet"))
+		{
+			Die();	// Hit a bullet, you're dead
+		}
+	}
 }
