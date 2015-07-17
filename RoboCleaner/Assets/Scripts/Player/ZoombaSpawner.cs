@@ -40,6 +40,7 @@ public class ZoombaSpawner : MonoBehaviour
 		
 		// Create a new Zoomba at this position
 		GameObject newZoomba = (GameObject) Instantiate(ZoombaToSpawn, this.transform.position, Quaternion.identity);
+		Camera.main.GetComponent<CameraFollow>().target = newZoomba.transform;
 
 		// Give invulnerability
 		newZoomba.GetComponent<PlayerController>().makeInvulnerable(5);
