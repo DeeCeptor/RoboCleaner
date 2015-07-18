@@ -52,5 +52,12 @@ public class Debris : MonoBehaviour
 
 			GameObject.Destroy(this.gameObject);
 		}
+		else if (other.tag == "AIZoomba")
+		{
+			AIZoomba friend = other.gameObject.GetComponent<AIZoomba>();
+			friend.debrisGathered = friend.debrisGathered+1;
+			
+			GameObject.Destroy(this.gameObject);
+		}
 	}
 }
