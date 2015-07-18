@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.97950363, y: .796588898, z: 1}
+  m_LocalPosition: {x: 8.18000031, y: 3.3599999, z: 1}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -119,13 +119,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: 0
-  speed: 3
+  speed: 2
   moveTimer: 0
   debrisAmount: 5
   debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
   hitWall: 0
   health: 100
   explosion: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
+  rotate: 0
   chosen: 0
   turnspeed: .0299999993
 --- !u!212 &21200000

@@ -30,7 +30,7 @@ GameObject:
   - 58: {fileID: 5850660}
   - 114: {fileID: 11420570}
   m_Layer: 8
-  m_Name: RedMidship
+  m_Name: redCorvette
   m_TagString: red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,13 +149,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: 0
-  speed: 2
+  speed: 1.5
   moveTimer: 0
   debrisAmount: 10
   debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
   hitWall: 0
   health: 250
   explosion: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
+  rotate: 0
   target: {fileID: 0}
   targetTimer: 0
   enemyList: []

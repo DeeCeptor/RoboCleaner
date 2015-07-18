@@ -28,9 +28,9 @@ GameObject:
   - 212: {fileID: 21220262}
   - 50: {fileID: 5035008}
   - 58: {fileID: 5869954}
-  - 114: {fileID: 11410232}
+  - 114: {fileID: 11425858}
   m_Layer: 8
-  m_Name: BlueFrigate 1
+  m_Name: blueCorvette
   m_TagString: blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -112.423882, y: -39.3414116, z: 1}
+  m_LocalPosition: {x: -14.5, y: 4.30000019, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449190}
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_Offset: {x: -.00499999989, y: -.330000013}
   serializedVersion: 2
   m_Radius: 1.95000005
---- !u!114 &11410232
+--- !u!114 &11425858
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -128,17 +128,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 189218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c553f8b2a0d2644badf041a0104b1e, type: 3}
+  m_Script: {fileID: 11500000, guid: e2ddcd6b7e004fd4d8eab4925aa6d459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: 0
-  speed: 2
+  speed: 1.5
   moveTimer: 0
-  debrisAmount: 10
+  debrisAmount: 5
   debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
   hitWall: 0
   health: 250
   explosion: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
+  rotate: 0
   target: {fileID: 0}
   targetTimer: 0
   enemyList: []

@@ -43,15 +43,23 @@ MonoBehaviour:
   blueShips: []
   blueSpawnable:
   - {fileID: 400002, guid: 238738d62de4a184fa3698029e65acc3, type: 2}
+  - {fileID: 483132, guid: 3a90ce3afe8370a4db65570701845e73, type: 2}
   - {fileID: 415372, guid: 5f62597794a40c3468659256c0fef2c3, type: 2}
   redSpawnable:
   - {fileID: 400000, guid: acd90aec0ccc96540bfdceca6683d548, type: 2}
+  - {fileID: 499718, guid: 852e2855c226fb6409114f0996eaf5cc, type: 2}
   - {fileID: 438488, guid: 5ad69bc8b0ad29848b0fcfa83180af21, type: 2}
   TopWall: {fileID: 0}
   BottomWall: {fileID: 0}
   RightWall: {fileID: 0}
   LeftWall: {fileID: 0}
   spawnTimer: 0
+  minSpawnTimer: .200000003
+  timerLowerBy: .100000001
+  frigateChanceStart: 1
+  frigateIncrement: .5
+  corvetteIncrement: 1
+  corvetteChanceStart: 11
   maxShips: 40
 --- !u!1001 &100100000
 Prefab:
