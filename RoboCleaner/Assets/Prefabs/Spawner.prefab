@@ -42,13 +42,13 @@ MonoBehaviour:
   redShips: []
   blueShips: []
   blueSpawnable:
-  - {fileID: 400002, guid: 238738d62de4a184fa3698029e65acc3, type: 2}
-  - {fileID: 483132, guid: 3a90ce3afe8370a4db65570701845e73, type: 2}
-  - {fileID: 415372, guid: 5f62597794a40c3468659256c0fef2c3, type: 2}
+  - {fileID: 493548, guid: 2b46068e065f14a4b80878c6190122c8, type: 2}
+  - {fileID: 493548, guid: 7d07932b9105c564d8bfdf025c7d8453, type: 2}
+  - {fileID: 493548, guid: f6a413345f1cc514e9514e644cdc62f8, type: 2}
   redSpawnable:
-  - {fileID: 400000, guid: acd90aec0ccc96540bfdceca6683d548, type: 2}
-  - {fileID: 499718, guid: 852e2855c226fb6409114f0996eaf5cc, type: 2}
-  - {fileID: 438488, guid: 5ad69bc8b0ad29848b0fcfa83180af21, type: 2}
+  - {fileID: 493548, guid: 1e730da88de6dfe42b0c7d31c5597a96, type: 2}
+  - {fileID: 493548, guid: b9a7ca983134e87449776cef58355901, type: 2}
+  - {fileID: 493548, guid: cd12fc93fbbf2b24d86c8f1acc420503, type: 2}
   TopWall: {fileID: 0}
   BottomWall: {fileID: 0}
   RightWall: {fileID: 0}
@@ -67,7 +67,31 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: blueSpawnable.Array.data[1]
+      value: 
+      objectReference: {fileID: 493548, guid: 7d07932b9105c564d8bfdf025c7d8453, type: 2}
+    - target: {fileID: 0}
+      propertyPath: blueSpawnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 493548, guid: 2b46068e065f14a4b80878c6190122c8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: blueSpawnable.Array.data[2]
+      value: 
+      objectReference: {fileID: 493548, guid: f6a413345f1cc514e9514e644cdc62f8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: redSpawnable.Array.data[1]
+      value: 
+      objectReference: {fileID: 493548, guid: b9a7ca983134e87449776cef58355901, type: 2}
+    - target: {fileID: 0}
+      propertyPath: redSpawnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 493548, guid: 1e730da88de6dfe42b0c7d31c5597a96, type: 2}
+    - target: {fileID: 0}
+      propertyPath: redSpawnable.Array.data[2]
+      value: 
+      objectReference: {fileID: 493548, guid: cd12fc93fbbf2b24d86c8f1acc420503, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185376}
