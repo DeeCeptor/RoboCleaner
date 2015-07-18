@@ -7,11 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: SmokeMaterial
-<<<<<<< HEAD
-  m_Shader: {fileID: 206, guid: 0000000000000000f000000000000000, type: 0}
-=======
   m_Shader: {fileID: 202, guid: 0000000000000000f000000000000000, type: 0}
->>>>>>> 4ac0638fadf69249707672380a0b23b09f547ce2
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -96,10 +92,6 @@ Material:
         second: 0
       data:
         first:
-          name: _InvFade
-        second: 1
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -138,6 +130,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _InvFade
+        second: 1
     m_Colors:
       data:
         first:
@@ -151,7 +147,3 @@ Material:
         first:
           name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _TintColor
-        second: {r: .5, g: .5, b: .5, a: .5}
