@@ -96,12 +96,4 @@ public class Scoreboard : MonoBehaviour
 	{
 		Debug.Log("Submit Score Callback worked? " + success);
 	}
-
-
-	// Display our score and lives
-	void OnGUI() 
-	{
-		GUI.Label(new Rect(10, 10, 150, 100), "Score " + score);
-		GUI.Label(new Rect(10, 30, 150, 100), "Lives " + lives);
-	}
 }
