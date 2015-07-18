@@ -8,11 +8,13 @@ public class Debris : MonoBehaviour
 	private GameObject pulledTowards;
 	private float pullSpeedFactor = 1f;
 	private float deathTimer;
+	public Sprite[] debrisSheet;
 
 
 	void Start () 
 	{
 		deathTimer = Time.time + 60;
+		this.GetComponent<SpriteRenderer>().sprite = debrisSheet[Random.Range(0,16)];
 	}
 	
 	void Update () 
