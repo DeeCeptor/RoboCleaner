@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11412882}
   m_Layer: 0
   m_Name: blueFrigateSpawner
-  m_TagString: Untagged
+  m_TagString: blueBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,6 +1129,10 @@ Prefab:
       propertyPath: toSpawn
       value: 
       objectReference: {fileID: 415372, guid: 5f62597794a40c3468659256c0fef2c3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: blueBullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174960}

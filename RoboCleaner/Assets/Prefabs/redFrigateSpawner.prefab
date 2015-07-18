@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11432922}
   m_Layer: 0
   m_Name: redFrigateSpawner
-  m_TagString: Untagged
+  m_TagString: red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,6 +1129,10 @@ Prefab:
       propertyPath: toSpawn
       value: 
       objectReference: {fileID: 438488, guid: 5ad69bc8b0ad29848b0fcfa83180af21, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: red
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174960}

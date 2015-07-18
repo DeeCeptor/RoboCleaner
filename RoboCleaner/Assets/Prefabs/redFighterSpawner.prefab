@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11457292}
   m_Layer: 0
   m_Name: redFighterSpawner
-  m_TagString: Untagged
+  m_TagString: red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,6 +1129,10 @@ Prefab:
       propertyPath: toSpawn
       value: 
       objectReference: {fileID: 400000, guid: acd90aec0ccc96540bfdceca6683d548, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: red
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174960}

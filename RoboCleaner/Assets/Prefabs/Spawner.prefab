@@ -55,12 +55,13 @@ MonoBehaviour:
   LeftWall: {fileID: 0}
   spawnTimer: 0
   minSpawnTimer: .200000003
-  timerLowerBy: .100000001
+  timerLowerBy: .200000003
   frigateChanceStart: 1
-  frigateIncrement: .5
-  corvetteIncrement: 1
+  frigateIncrement: 1
+  corvetteIncrement: 2
   corvetteChanceStart: 11
   maxShips: 40
+  difficultyincrements: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -92,6 +93,18 @@ Prefab:
       propertyPath: redSpawnable.Array.data[2]
       value: 
       objectReference: {fileID: 493548, guid: cd12fc93fbbf2b24d86c8f1acc420503, type: 2}
+    - target: {fileID: 0}
+      propertyPath: frigateIncrement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: corvetteIncrement
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timerLowerBy
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185376}

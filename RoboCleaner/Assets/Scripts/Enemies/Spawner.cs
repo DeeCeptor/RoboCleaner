@@ -21,6 +21,8 @@ public class Spawner : MonoBehaviour {
 	public float corvetteIncrement = 1f;
 	public float corvetteChanceStart = 11f;
 	public int maxShips = 40;
+	public float difficultyincrements =5f;
+	private float difficultyTimer =0;
 	private int spawnNumber;
 	// Use this for initialization
 	void Start () {
@@ -98,15 +100,17 @@ public class Spawner : MonoBehaviour {
 							Instantiate (blueSpawnable[2],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 						}				}
 			}
-			if(spawnDelay>minSpawnTimer)
-			{
-				spawnDelay = spawnDelay - timerLowerBy;
-				frigateChanceStart = frigateChanceStart + frigateIncrement;
-				corvetteChanceStart = corvetteChanceStart + corvetteIncrement;
-			}
+			
 		}
+			
 		}
-	
-	
+		if(spawnDelay>minSpawnTimer && difficultyTimer < Time.time)
+		{
+			difficultyTimer = difficultyTimer + difficultyincrements;
+			spawnDelay = spawnDelay - timerLowerBy;
+			frigateChanceStart = frigateChanceStart + frigateIncrement;
+			corvetteChanceStart = corvetteChanceStart + corvetteIncrement;
+		}
+		
 	}
 }
