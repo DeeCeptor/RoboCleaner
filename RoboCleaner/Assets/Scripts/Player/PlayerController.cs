@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 	private GameObject engineEmitter;
 	private GameObject smokeEmitter;
 	private GameObject brakeEmitter;
+	private GameObject heatEmitter;
 
 	private float invulnerability = 0;	// Amount of time we're invulnerable for. If above 0, we're invulnerable
 
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
 		engineEmitter = this.transform.Find("ShipArt/Thruster System").gameObject;
 		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
 		brakeEmitter = this.transform.Find("ShipArt/Brake System").gameObject;
+		heatEmitter = this.transform.Find("ShipArt/Heat System").gameObject;
 	}
 	
 
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
 				{
 					this.engineEmitter.GetComponent<ParticleSystem>().Stop();
 					this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
+					this.heatEmitter.GetComponent<ParticleSystem>().Stop();
 				}
 				if(!this.brakeEmitter.GetComponent<ParticleSystem>().isPlaying)
 					this.brakeEmitter.GetComponent<ParticleSystem>().Play();
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
 					{
 						this.engineEmitter.GetComponent<ParticleSystem>().Play();
 						this.smokeEmitter.GetComponent<ParticleSystem>().Play();
+						this.heatEmitter.GetComponent<ParticleSystem>().Play();
 					}
 				}
 				else
@@ -97,6 +101,7 @@ public class PlayerController : MonoBehaviour
 					{
 						this.engineEmitter.GetComponent<ParticleSystem>().Stop();
 						this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
+						this.heatEmitter.GetComponent<ParticleSystem>().Stop();
 					}
 				}
 
@@ -121,6 +126,8 @@ public class PlayerController : MonoBehaviour
 	{
 		if (!isInvulnerable())
 		{
+			Die();	// Hit a bullet, you're dead
+
 			if (!Scoreboard.board.died)
 			{
 				Scoreboard.board.unlockTrophy(35398);
@@ -131,8 +138,6 @@ public class PlayerController : MonoBehaviour
 				Scoreboard.board.unlockTrophy(35402);
 				Scoreboard.board.lazored = true;
 			}
-
-			Die();	// Hit a bullet, you're dead
 		}
 	}
 	public void Die()

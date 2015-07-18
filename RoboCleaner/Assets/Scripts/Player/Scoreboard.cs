@@ -30,6 +30,7 @@ public class Scoreboard : MonoBehaviour
 		board = this;
 
 		modifyLivesBy(0);
+		modifyScore(0);
 	}
 
 
@@ -55,7 +56,7 @@ public class Scoreboard : MonoBehaviour
 			time += Time.deltaTime;
 
 			int minutes = (int) ((time) / 60.0f);
-			int seconds = (int) time;
+			int seconds = (int) (time % 60);
 			int milliseconds = (int) ((time - seconds) * 100);
 			timeText.GetComponent<Text>().text = ("" + minutes).PadLeft(2, '0') + ":" + ("" + seconds).PadLeft(2, '0') + "." + ("" + milliseconds).PadLeft(2, '0');
 		
@@ -78,6 +79,11 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
+	public void ReturnToMenu()
+	{
+		Application.LoadLevel("Menu");
+	}
+	
 
 	public void Unpause()
 	{
@@ -98,12 +104,14 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
-	public void modifyScore(int amount)
+	public IEnumerator modifyScore(int amount)
 	{
 		score += amount;
 		score = Mathf.Max(0, score);	// Score can't go below 0
 		scoreText.GetComponent<Text>().text = "" + score;
-		debrisGotten++;
+
+		if (amount > 0)
+			debrisGotten++;
 
 		if (debrisGotten > 0 && !helper)
 		{
@@ -125,13 +133,28 @@ public class Scoreboard : MonoBehaviour
 			unlockTrophy(35404);
 			MrClean = true;
 		}
+
+		yield return new WaitForSeconds(0f);
 	}
 
 
 	public void unlockTrophy(int trophyID)
 	{
+		// First check if we already have unlocked this trophy
+		GameJolt.API.Trophies.Get(trophyID, getTrophy);
+	}
+	public void getTrophy(GameJolt.API.Objects.Trophy trophy)
+	{
+		Debug.Log ("Got trophy: " + trophy.ID + " unlocked: " + trophy.Unlocked);
+		if (!trophy.Unlocked)	// Unlock trophy if we don't already have it
+			actuallyUnlockTrophy(trophy.ID);
+	}
+	public void actuallyUnlockTrophy(int trophyID)
+	{
 		if (GameJolt.API.Manager.Instance != null && GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
+		{
 			GameJolt.API.Trophies.Unlock(trophyID, trophyCallback);
+		}
 	}
 	public void trophyCallback(bool success)
 	{
@@ -142,7 +165,7 @@ public class Scoreboard : MonoBehaviour
 	public void submitScore()
 	{
 		if (GameJolt.API.Manager.Instance != null && GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
-			GameJolt.API.Scores.Add(score, "Kilograms " + score + " cleared", 0, "", submitScoreCallback);	
+			GameJolt.API.Scores.Add(score, score + " kilograms cleared", 0, "", submitScoreCallback);	
 	}
 	void submitScoreCallback(bool success)
 	{
