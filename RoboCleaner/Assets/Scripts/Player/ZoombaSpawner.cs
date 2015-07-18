@@ -31,12 +31,14 @@ public class ZoombaSpawner : MonoBehaviour
 	{
 		Debug.Log("Died! Beginning spawning process");
 
+		FadeManager.fader.fadeOut(6);
 		// Wait a few seconds before reviving player
 		yield return new WaitForSeconds(3f);
+		FadeManager.fader.fadeIn(5);
 
 		Debug.Log("Spawning new zoomba");
 
-		Scoreboard.board.lives--;	// Remove a life
+		Scoreboard.board.modifyLivesBy(-1);	// Remove a life
 		
 		// Create a new Zoomba at this position
 		GameObject newZoomba = (GameObject) Instantiate(ZoombaToSpawn, this.transform.position, Quaternion.identity);
@@ -48,11 +50,12 @@ public class ZoombaSpawner : MonoBehaviour
 	IEnumerator GameOver()
 	{
 		Debug.Log("Starting game over sequence");
+		FadeManager.fader.fadeOut(6);
 		Scoreboard.board.submitScore();
 		// Wait a bit before kicking the player out
 		yield return new WaitForSeconds(3f);
 
 		Debug.Log("GAME OVER!");
-		Application.LoadLevel("Menu");
+		//Application.LoadLevel("Menu");
 	}
 }

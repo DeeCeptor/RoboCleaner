@@ -34,7 +34,7 @@ public class FadeManager : MonoBehaviour {
 	{
 		alphaFadeValue = 0;
 		fadingOverTime = overTime;
-		fadingIn = true;
+		fadingOut = true;
 	}
 
 	void Update () 
