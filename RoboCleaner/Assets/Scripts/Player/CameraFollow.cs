@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour {
 	
 	}
 	
-	void Update () 
+	void FixedUpdate () 
 	{
 		// Follow only with x y axes. Not rotation.
 		if (target != null)

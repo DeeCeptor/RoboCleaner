@@ -7,10 +7,12 @@ public class Scoreboard : MonoBehaviour
 	public static Scoreboard board;
 
 	public int lives = 1;	// How many lives we got. Can't revive if we're out of lives.
+	public float time;
 
 	public GameObject livesText;
 	public GameObject scoreText;
 	public GameObject PauseMenu;
+	public GameObject timeText;
 
 	private int score;	// Value >= 0
 
@@ -37,6 +39,17 @@ public class Scoreboard : MonoBehaviour
 				// Currently unpaused, pause game
 				Pause();
 			}
+		}
+
+		if (Time.timeScale != 0)
+		{
+			// Timer is running if we're not paused
+			time += Time.deltaTime;
+
+			int minutes = (int) ((time) / 60.0f);
+			int seconds = (int) time;
+			int milliseconds = (int) ((time - seconds) * 100);
+			timeText.GetComponent<Text>().text = ("" + minutes).PadLeft(2, '0') + ":" + ("" + seconds).PadLeft(2, '0') + "." + ("" + milliseconds).PadLeft(2, '0');
 		}
 	}
 

@@ -27,70 +27,73 @@ public class PlayerController : MonoBehaviour
 
 	void Update () 
 	{
-		// Update invulnerability
-		if (isInvulnerable())
-			invulnerability -= Time.deltaTime;
-
-		float rotation = -Input.GetAxis("Horizontal");
-		float acceleration = Input.GetAxis("Vertical");
-
-		// Ship rotation
-		if (rotation != 0) {
-			//GetComponent<Rigidbody2D>().AddTorque(rotation * rotationForce * movementFactor);
-			//GetComponent<Rigidbody2D>().angularVelocity = rotation * rotationForce;
-			transform.Rotate (Vector3.forward * rotation * rotationForce * movementFactor);
-		}
-		else {
-			GetComponent<Rigidbody2D>().angularVelocity = 0;
-		}
-
-
-		// Are we braking? If so, don't take any acceleration
-		if (Input.GetButton("Brake"))
+		if (Time.timeScale != 0)
 		{
-			GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * brakeFactor;
+			// Update invulnerability
+			if (isInvulnerable())
+				invulnerability -= Time.deltaTime;
 
-			// Turn off engine animation
-			if(this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
-			{
-				this.engineEmitter.GetComponent<ParticleSystem>().Stop();
-				this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
-			}
-		}
-		// Not braking, so take input
-		else
-		{
-			if (Input.GetButton("PrecisionMode"))
-			{
-				colliderArt.SetActive(true);
-				movementFactor = precisionModeFactor;
-			}
-			else
-			{
-				colliderArt.SetActive(false);
-				movementFactor = 1;
-			}
-			
-			// Ship acceleration
-			if (acceleration != 0)
-			{
-				// Accelerating, add force
-				GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration * accelerationForce * movementFactor);
+			float rotation = -Input.GetAxis("Horizontal");
+			float acceleration = Input.GetAxis("Vertical");
 
-				// Turn on booster firing, leave trail
-				if(!this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
-				{
-					this.engineEmitter.GetComponent<ParticleSystem>().Play();
-					this.smokeEmitter.GetComponent<ParticleSystem>().Play();
-				}
+			// Ship rotation
+			if (rotation != 0) {
+				//GetComponent<Rigidbody2D>().AddTorque(rotation * rotationForce * movementFactor);
+				//GetComponent<Rigidbody2D>().angularVelocity = rotation * rotationForce;
+				transform.Rotate (Vector3.forward * rotation * rotationForce * movementFactor);
 			}
-			else
+			else {
+				GetComponent<Rigidbody2D>().angularVelocity = 0;
+			}
+
+
+			// Are we braking? If so, don't take any acceleration
+			if (Input.GetButton("Brake"))
 			{
+				GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * brakeFactor;
+
 				// Turn off engine animation
 				if(this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
 				{
 					this.engineEmitter.GetComponent<ParticleSystem>().Stop();
 					this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
+				}
+			}
+			// Not braking, so take input
+			else
+			{
+				if (Input.GetButton("PrecisionMode"))
+				{
+					colliderArt.SetActive(true);
+					movementFactor = precisionModeFactor;
+				}
+				else
+				{
+					colliderArt.SetActive(false);
+					movementFactor = 1;
+				}
+				
+				// Ship acceleration
+				if (acceleration != 0)
+				{
+					// Accelerating, add force
+					GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration * accelerationForce * movementFactor);
+
+					// Turn on booster firing, leave trail
+					if(!this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
+					{
+						this.engineEmitter.GetComponent<ParticleSystem>().Play();
+						this.smokeEmitter.GetComponent<ParticleSystem>().Play();
+					}
+				}
+				else
+				{
+					// Turn off engine animation
+					if(this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
+					{
+						this.engineEmitter.GetComponent<ParticleSystem>().Stop();
+						this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
+					}
 				}
 			}
 		}
