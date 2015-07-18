@@ -4,11 +4,15 @@ using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour 
 {
+	public enum ScoreType { DEBRIS, TICKET, OTHER };
+
 	public static Scoreboard board;
 
 	public int lives = 1;	// How many lives we got. Can't revive if we're out of lives.
 	public float time;
+
 	public int debrisGotten = 0;
+	private int shipsTicketed = 0;
 
 	public GameObject livesText;
 	public GameObject scoreText;
@@ -30,7 +34,7 @@ public class Scoreboard : MonoBehaviour
 		board = this;
 
 		modifyLivesBy(0);
-		modifyScore(0);
+		modifyScore(0, Scoreboard.ScoreType.OTHER);
 	}
 
 
@@ -104,14 +108,16 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
-	public IEnumerator modifyScore(int amount)
+	public IEnumerator modifyScore(int amount, ScoreType type)
 	{
 		score += amount;
 		score = Mathf.Max(0, score);	// Score can't go below 0
 		scoreText.GetComponent<Text>().text = "" + score;
 
-		if (amount > 0)
+		if (amount > 0 && type == ScoreType.DEBRIS)
 			debrisGotten++;
+		else if (type == ScoreType.TICKET)
+			shipsTicketed++;
 
 		if (debrisGotten > 0 && !helper)
 		{
