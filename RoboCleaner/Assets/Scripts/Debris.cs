@@ -43,7 +43,7 @@ public class Debris : MonoBehaviour
 		else if (other.tag == "Player")
 		{
 			// Touched player's inner collider, collect points and destroy this!
-			StartCoroutine(Scoreboard.board.modifyScore(debrisScore));
+			StartCoroutine(Scoreboard.board.modifyScore(debrisScore, Scoreboard.ScoreType.DEBRIS));
 
 			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
 			score.transform.position = this.transform.position;

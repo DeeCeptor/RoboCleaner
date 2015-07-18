@@ -28,7 +28,7 @@ public class blueSwoop : RedSwoop {
 		
 		if(otherCollider.gameObject.tag == "Player" && otherCollider.gameObject.layer == 14 && ticketed == false)
 		{
-			StartCoroutine(Scoreboard.board.modifyScore(ticketScore));
+			StartCoroutine(Scoreboard.board.modifyScore(ticketScore, Scoreboard.ScoreType.TICKET));
 			ticketed = true;
 			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
 			score.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z -5);
