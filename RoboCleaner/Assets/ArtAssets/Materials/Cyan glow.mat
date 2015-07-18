@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Glow
+  m_Name: Cyan glow
   m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -166,7 +166,7 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: 1, g: .0882353187, b: .0882353187, a: .501960814}
+        second: {r: 0, g: .917241335, b: 1, a: .501960814}
       data:
         first:
           name: _EmisColor
