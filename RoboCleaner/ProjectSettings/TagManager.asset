@@ -11,6 +11,7 @@ TagManager:
   - blueBullet
   - redBullet
   - Wall
+  - AIZoomba
   layers:
   - Default
   - TransparentFX
