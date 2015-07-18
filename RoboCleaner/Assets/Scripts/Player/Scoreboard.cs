@@ -41,12 +41,12 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
-	public void Pause()
+	public void Unpause()
 	{
 		Time.timeScale = 1;
 		PauseMenu.SetActive(false);
 	}
-	public void Unpause()
+	public void Pause()
 	{
 		Time.timeScale = 0;
 		PauseMenu.SetActive(true);
