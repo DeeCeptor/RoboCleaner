@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	private GameObject colliderArt;
 	private GameObject engineEmitter;
 	private GameObject smokeEmitter;
+	private GameObject brakeEmitter;
 
 	private float invulnerability = 0;	// Amount of time we're invulnerable for. If above 0, we're invulnerable
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 		colliderArt.SetActive(false);
 		engineEmitter = this.transform.Find("ShipArt/Thruster System").gameObject;
 		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
+		brakeEmitter = this.transform.Find("ShipArt/Brake System").gameObject;
 	}
 	
 
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
 					this.engineEmitter.GetComponent<ParticleSystem>().Stop();
 					this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
 				}
+				if(!this.brakeEmitter.GetComponent<ParticleSystem>().isPlaying)
+					this.brakeEmitter.GetComponent<ParticleSystem>().Play();
 			}
 			// Not braking, so take input
 			else
@@ -95,6 +99,9 @@ public class PlayerController : MonoBehaviour
 						this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
 					}
 				}
+
+				if(this.brakeEmitter.GetComponent<ParticleSystem>().isPlaying)
+					this.brakeEmitter.GetComponent<ParticleSystem>().Stop();
 			}
 		}
 	}
@@ -119,8 +126,25 @@ public class PlayerController : MonoBehaviour
 	{
 		// Call to revive or game over
 		Debug.Log("Died");
-		ZoombaSpawner.spawner.PlayerDied();
 
+		// Split ship in half
+		GameObject destroyedShip = this.transform.FindChild("ShipArt/DestroyedShip").gameObject;
+		destroyedShip.SetActive(true);
+		// Split off both halves
+		GameObject Half1 = destroyedShip.transform.FindChild("Half1").gameObject;
+		GameObject Half2 = destroyedShip.transform.FindChild("Half2").gameObject;
+		Half1.transform.parent = null;
+		Half2.transform.parent = null;
+		// Send them flying and rotating in randomish directions
+		Vector3 cur_velocity = this.GetComponent<Rigidbody2D>().velocity;
+		float cur_angular_velocity = this.GetComponent<Rigidbody2D>().angularVelocity;
+		Half1.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+		Half2.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+		Half1.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+		Half2.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+
+		ZoombaSpawner.spawner.PlayerDied();
+		
 		GameObject.Destroy(this.gameObject);
 	}
 

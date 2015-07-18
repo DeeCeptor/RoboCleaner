@@ -7,7 +7,6 @@ using System.Collections;
 public class ZoombaSpawner : MonoBehaviour 
 {
 	public static ZoombaSpawner spawner;
-	public GameObject ZoombaToSpawn;
 
 	void Start () 
 	{
@@ -41,7 +40,7 @@ public class ZoombaSpawner : MonoBehaviour
 		Scoreboard.board.modifyLivesBy(-1);	// Remove a life
 		
 		// Create a new Zoomba at this position
-		GameObject newZoomba = (GameObject) Instantiate(ZoombaToSpawn, this.transform.position, Quaternion.identity);
+		GameObject newZoomba = (GameObject) Instantiate((GameObject) Resources.Load("Zoomba3000", typeof(GameObject)), this.transform.position, Quaternion.identity);
 		Camera.main.GetComponent<CameraFollow>().target = newZoomba.transform;
 
 		// Give invulnerability
