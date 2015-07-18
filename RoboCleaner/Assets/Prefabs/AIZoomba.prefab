@@ -175,7 +175,7 @@ GameObject:
   - 58: {fileID: 5868306}
   m_Layer: 12
   m_Name: Collider
-  m_TagString: Player
+  m_TagString: AIZoomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 444278}
   - 50: {fileID: 5052174}
-  - 114: {fileID: 11420880}
+  - 114: {fileID: 11428262}
   m_Layer: 12
   m_Name: AIZoomba
   m_TagString: Player
@@ -798,21 +798,6 @@ TrailRenderer:
       rgba: 1048552
   m_MinVertexDistance: .100000001
   m_Autodestruct: 0
---- !u!114 &11420880
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52469a604a20ce04abb68e2a6a7ac36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerationForce: 10
-  debrisGathered: 0
-  target: {fileID: 0}
-  debrisList: []
 --- !u!114 &11425670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -828,6 +813,22 @@ MonoBehaviour:
   starSize: .100000001
   starDistance: 50
   starClipDistance: 5
+--- !u!114 &11428262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52469a604a20ce04abb68e2a6a7ac36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerationForce: 2
+  debrisGathered: 0
+  target: {fileID: 0}
+  debrisList: []
+  debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
 --- !u!120 &12043936
 LineRenderer:
   m_ObjectHideFlags: 1
