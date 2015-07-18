@@ -10,7 +10,11 @@ public class BlueShip : RedShip{
 		{
 			attackScript attack = otherCollider.gameObject.GetComponent<attackScript>();
 			health = health - attack.attackDamage;
-			Instantiate (debris,transform.position, transform.rotation);
+			Transform debrisMade = (Transform)Instantiate (debris,transform.position, transform.rotation);
+			if(otherCollider.gameObject.GetComponent<Rigidbody2D>() != null)
+			{
+				debrisMade.GetComponent<Rigidbody2D>().velocity = otherCollider.gameObject.GetComponent<Rigidbody2D>().velocity;
+			}
 		}
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{

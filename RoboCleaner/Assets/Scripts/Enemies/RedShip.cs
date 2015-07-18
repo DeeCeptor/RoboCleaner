@@ -38,7 +38,8 @@ public class RedShip : MonoBehaviour {
 			Die();
 			for(int i = 0;i < debrisAmount;i++)
 			{
-				Instantiate (debris, new Vector3(transform.position.x + Random.Range(-2,2),transform.position.y + Random.Range(-2,2),transform.position.z), transform.rotation);
+				Transform debrisMade = (Transform)Instantiate (debris, new Vector3(transform.position.x + Random.Range(-2,2),transform.position.y + Random.Range(-2,2),transform.position.z), transform.rotation);
+				debrisMade.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-200,201)/100f , Random.Range(-200,201)/100f );
 			}
 		}
 	}
@@ -49,7 +50,11 @@ public class RedShip : MonoBehaviour {
 		{
 			attackScript attack = otherCollider.gameObject.GetComponent<attackScript>();
 			health = health - attack.attackDamage;
-			Instantiate (debris,transform.position, transform.rotation);
+			Transform debrisMade = (Transform)Instantiate (debris,transform.position, transform.rotation);
+			if(otherCollider.gameObject.GetComponent<Rigidbody2D>() != null)
+			{
+				debrisMade.GetComponent<Rigidbody2D>().velocity = otherCollider.gameObject.GetComponent<Rigidbody2D>().velocity;
+			}
 		}
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{
