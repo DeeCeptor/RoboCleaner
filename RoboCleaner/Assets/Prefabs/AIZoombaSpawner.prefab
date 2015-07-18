@@ -13,8 +13,8 @@ GameObject:
   - 114: {fileID: 11427636}
   - 82: {fileID: 8277374}
   m_Layer: 0
-  m_Name: blueCorvetteSpawner 1
-  m_TagString: blue
+  m_Name: AIZoombaSpawner
+  m_TagString: AIZoomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,7 +1201,7 @@ Prefab:
       objectReference: {fileID: 444278, guid: 3928d9cb964b68a41a9525996bc57e09, type: 2}
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: blue
+      value: AIZoomba
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

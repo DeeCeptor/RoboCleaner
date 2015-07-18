@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 489322}
   - 114: {fileID: 11496840}
+  - 114: {fileID: 11406802}
   m_Layer: 0
   m_Name: ZoombaSpawnPoint
-  m_TagString: Untagged
+  m_TagString: AIZoomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,11 +24,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: .0581685305, y: -4.72244835, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11406802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec67cc29be6367a42b0217a72b04a464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 493548, guid: 8a23ff3717c04ce4c9b38628ab2d8111, type: 2}
+  ZoombaList: []
+  ZoombaNum: 3
 --- !u!114 &11496840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,14 +54,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66a1719813f919438ef5f1291510aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoombaToSpawn: {fileID: 142042, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: AIZoomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: toSpawn
+      value: 
+      objectReference: {fileID: 493548, guid: 8a23ff3717c04ce4c9b38628ab2d8111, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ZoombaNum
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145220}
