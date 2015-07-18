@@ -23,7 +23,7 @@ public class Debris : MonoBehaviour
 		{
 			// Move towards player, the closer they are the more quickly
 			Vector3 diff = pulledTowards.transform.position - this.transform.position;
-			this.GetComponent<Rigidbody2D>().velocity = Vector3.Normalize(pulledTowards.transform.position - this.transform.position) * 2;
+			this.GetComponent<Rigidbody2D>().velocity = Vector3.Normalize(pulledTowards.transform.position - this.transform.position) * diff.magnitude * 8;
 			//this.transform.position -= diff / diff.magnitude * pullSpeedFactor * Time.deltaTime;
 		}
 		if(deathTimer<Time.time)
@@ -42,8 +42,8 @@ public class Debris : MonoBehaviour
 		}
 		else if (other.tag == "Player")
 		{
-			// Touchwed player's inner collider, collect points and destroy this!
-			Scoreboard.board.modifyScore(debrisScore);
+			// Touched player's inner collider, collect points and destroy this!
+			StartCoroutine(Scoreboard.board.modifyScore(debrisScore));
 
 			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
 			score.transform.position = this.transform.position;

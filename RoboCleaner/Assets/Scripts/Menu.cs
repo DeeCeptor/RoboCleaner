@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
 	}
 	void ShowLeaderboards()
 	{
-		GameJolt.UI.Manager.Instance.ShowLeaderboards();
+		GameJolt.UI.Manager.Instance.ShowLeaderboards(leaderboardCallback);
 	}
 	void StartGame()
 	{
@@ -31,6 +31,10 @@ public class Menu : MonoBehaviour
 		Application.LoadLevel ("OtherLevel");
 	}
 
+	public void leaderboardCallback(bool success)
+	{
+		Debug.Log("Leaderboard " + success);
+	}
 	public void signInCallback(bool success)
 	{
 		if (success) 
