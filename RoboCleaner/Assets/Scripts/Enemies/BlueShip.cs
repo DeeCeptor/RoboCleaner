@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BlueShip : RedShip{
 
+
 	
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{

@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour {
 	public bool dead = false;
 	Vector2 dir = new Vector2(0,0);
 	public int layerIgnore = 8;
+	public Transform explosion;
 	// Use this for initialization
 	void Start () {
 	
@@ -30,7 +31,9 @@ public class BulletScript : MonoBehaviour {
 	{
 		if(otherCollider.gameObject.layer != layerIgnore && otherCollider.gameObject.layer != 13)
 		{
+			Instantiate (explosion, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
 			dead = true;
+			
 		}
 		
 	}

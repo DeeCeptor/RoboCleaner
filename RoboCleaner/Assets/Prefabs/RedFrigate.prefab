@@ -202,6 +202,7 @@ MonoBehaviour:
   debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
   hitWall: 0
   health: 1000
+  explosion: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
 --- !u!114 &11482942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +339,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 53765de6b4f1fa347bc0816eb2f2cbdc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194064}

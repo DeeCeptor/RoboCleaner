@@ -14,7 +14,14 @@ public class Spawner : MonoBehaviour {
 	public Transform LeftWall;
 	private float spawnDelay = 5f;
 	public float spawnTimer = 0f;
+	public float minSpawnTimer = 0.2f;
+	public float timerLowerBy = 0.1f;
+	public float frigateChanceStart = 1f;
+	public float frigateIncrement = 0.5f;
+	public float corvetteIncrement = 1f;
+	public float corvetteChanceStart = 11f;
 	public int maxShips = 40;
+	private int spawnNumber;
 	// Use this for initialization
 	void Start () {
 	}
@@ -24,32 +31,78 @@ public class Spawner : MonoBehaviour {
 		if(spawnTimer <= Time.time)
 		{
 			spawnTimer = Time.time + spawnDelay;
+			spawnNumber = Random.Range(1,101);
 			blueShips = GameObject.FindGameObjectsWithTag("blue");
 			redShips = GameObject.FindGameObjectsWithTag("red");
 			if((redShips.Length + blueShips.Length) <=maxShips){
 			if(blueShips.Length > redShips.Length)
 			{
-				Instantiate (redSpawnable[Random.Range(0,redSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+				if(spawnNumber>corvetteChanceStart)
+				{
+				Instantiate (redSpawnable[0],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+				}
+				else if(spawnNumber>frigateChanceStart && spawnNumber < corvetteChanceStart)
+				{
+				Instantiate (redSpawnable[1],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+				}
+				else
+				{
+				Instantiate (redSpawnable[2],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+				}
 			}
 			else if(redShips.Length > blueShips.Length)
 			{
-				Instantiate (blueSpawnable[Random.Range(0,blueSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+					if(spawnNumber>corvetteChanceStart)
+					{
+						Instantiate (blueSpawnable[0],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+					}
+					else if(spawnNumber>frigateChanceStart && spawnNumber < corvetteChanceStart)
+					{
+						Instantiate (blueSpawnable[1],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+					}
+					else
+					{
+						Instantiate (blueSpawnable[2],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+					}
 			}
 			else if(redShips.Length == blueShips.Length)
 			{
 				int rando = Random.Range (0,1);
 				if(rando == 0)
 				{
-					Instantiate (redSpawnable[Random.Range(0,redSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						if(spawnNumber>corvetteChanceStart)
+						{
+							Instantiate (redSpawnable[0],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						}
+						else if(spawnNumber>frigateChanceStart && spawnNumber < corvetteChanceStart)
+						{
+							Instantiate (redSpawnable[1],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						}
+						else
+						{
+							Instantiate (redSpawnable[2],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						}
 				}
 				if(rando == 1)
 				{
-					Instantiate (blueSpawnable[Random.Range(0,blueSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
-				}
+						if(spawnNumber>corvetteChanceStart)
+						{
+							Instantiate (blueSpawnable[0],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						}
+						else if(spawnNumber>frigateChanceStart && spawnNumber < corvetteChanceStart)
+						{
+							Instantiate (blueSpawnable[1],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						}
+						else
+						{
+							Instantiate (blueSpawnable[2],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+						}				}
 			}
-			if(spawnDelay>0.2f)
+			if(spawnDelay>minSpawnTimer)
 			{
-			spawnDelay = spawnDelay - 0.1f;
+				spawnDelay = spawnDelay - timerLowerBy;
+				frigateChanceStart = frigateChanceStart + frigateIncrement;
+				corvetteChanceStart = corvetteChanceStart + corvetteIncrement;
 			}
 		}
 		}

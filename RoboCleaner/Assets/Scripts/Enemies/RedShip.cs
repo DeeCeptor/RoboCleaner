@@ -9,6 +9,8 @@ public class RedShip : MonoBehaviour {
 	public Transform debris;
 	public bool hitWall = false;
 	public int health = 100;
+	public Transform explosion;
+	public int rotate;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,21 +20,25 @@ public class RedShip : MonoBehaviour {
 	void FixedUpdate () {
 		if(moveTimer <= Time.time){
 		hitWall = false;
-			moveTimer = Time.time + 2f;
-			moveDir = Random.Range(0,5);
+			moveTimer = Time.time + Random.Range(2,8);
+			moveDir = Random.Range(0,3);
+			rotate = Random.Range(0,3);
+			if(rotate == 1){
+				GetComponent<Rigidbody2D>().AddTorque(15);
+			}
+			if(rotate == 2){
+				GetComponent<Rigidbody2D>().AddTorque(-15);
+			}
 			}
 		if(moveDir == 1){
-			GetComponent<Rigidbody2D>().velocity = new Vector2(0,speed);
+			GetComponent<Rigidbody2D>().velocity = transform.up * speed;
 		}
 		if(moveDir == 2){
-			GetComponent<Rigidbody2D>().velocity = new Vector2(0,-speed);
+			GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
 		}
-		if(moveDir == 3){
-			GetComponent<Rigidbody2D>().velocity = new Vector2(speed,0);
-		}
-		if(moveDir == 4){
-			GetComponent<Rigidbody2D>().velocity = new Vector2(-speed,0);
-		}
+		
+		
+		
 	if(health <=0)
 		{
 			Die();
@@ -40,6 +46,7 @@ public class RedShip : MonoBehaviour {
 			{
 				Transform debrisMade = (Transform)Instantiate (debris, new Vector3(transform.position.x + Random.Range(-2,2),transform.position.y + Random.Range(-2,2),transform.position.z), transform.rotation);
 				debrisMade.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-200,201)/100f , Random.Range(-200,201)/100f );
+				Instantiate (debris, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
 			}
 		}
 	}
