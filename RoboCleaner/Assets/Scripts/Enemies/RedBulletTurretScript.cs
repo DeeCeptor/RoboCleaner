@@ -8,17 +8,18 @@ public class RedBulletTurretScript : MonoBehaviour {
 	public Transform attackType;
 	public float range = 100f;
 	public float targetTimer = 0;
+	public float attackSpeed = 2f;
 	
 	// Use this for initialization
 	void Start () {
-		
-	}
+			
+		}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(attackTimer <= Time.time && enemyList.Length > 0 && enemyTarget!=null){
 			if((enemyTarget.transform.position - transform.position).magnitude < range){
-			attackTimer = Time.time + 2f;
+			attackTimer = Time.time + attackSpeed;
 			Transform attack = null;
 			attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 			BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();

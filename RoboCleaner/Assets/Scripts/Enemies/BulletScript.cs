@@ -5,7 +5,7 @@ using System.Collections;
 public class BulletScript : MonoBehaviour {
 	public float speed = 4f;
 	public Vector3 target;
-	private bool dead = false;
+	public bool dead = false;
 	Vector2 dir = new Vector2(0,0);
 	public int layerIgnore = 8;
 	// Use this for initialization

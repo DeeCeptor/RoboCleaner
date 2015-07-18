@@ -37,13 +37,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f3c7c13a902ee4a8d8862bc89e5328, type: 3}
+  m_Script: {fileID: 11500000, guid: e574478ee7a5eca4ebe2d2f2eb2f741f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList: []
   enemyTarget: {fileID: 0}
   attackType: {fileID: 400000, guid: d2399c29dfcef5443a8d908aae0ee27e, type: 2}
   range: 100
+  targetTimer: 0
+  attackSpeed: 2
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -76,7 +78,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: attackType
+      value: 
+      objectReference: {fileID: 400000, guid: d2399c29dfcef5443a8d908aae0ee27e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}

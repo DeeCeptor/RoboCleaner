@@ -1,13 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &185376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 414358}
+  - 114: {fileID: 11449054}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414358
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.681201935, y: 5.61998081, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11449054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3c5c00319f83a41a8e0a23711e4c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redShips: []
+  blueShips: []
+  blueSpawnable:
+  - {fileID: 400002, guid: 238738d62de4a184fa3698029e65acc3, type: 2}
+  - {fileID: 415372, guid: 5f62597794a40c3468659256c0fef2c3, type: 2}
+  redSpawnable:
+  - {fileID: 400000, guid: acd90aec0ccc96540bfdceca6683d548, type: 2}
+  - {fileID: 438488, guid: 5ad69bc8b0ad29848b0fcfa83180af21, type: 2}
+  TopWall: {fileID: 0}
+  BottomWall: {fileID: 0}
+  RightWall: {fileID: 0}
+  LeftWall: {fileID: 0}
+  spawnTimer: 0
 --- !u!1001 &100100000
 Prefab:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 0}
+  m_RootGameObject: {fileID: 185376}
   m_IsPrefabParent: 1
