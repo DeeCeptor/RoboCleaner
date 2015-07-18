@@ -32,7 +32,6 @@ public class infiniteStarfield : MonoBehaviour {
 
 	private void CreateStars()
 	{
-
 		points = new ParticleSystem.Particle[starsMax];
 
 		for(int i = 0; i < starsMax; i++)
