@@ -52,6 +52,7 @@ MonoBehaviour:
   RightWall: {fileID: 0}
   LeftWall: {fileID: 0}
   spawnTimer: 0
+  maxShips: 40
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -26,15 +26,17 @@ public class RedBulletTurretScript : MonoBehaviour {
 			projectile.target = enemyTarget.transform.position;
 		}
 		}
+		if(targetTimer <= Time.time)
+		{
+			targetTimer = targetTimer + 5f;
 		enemyList = GameObject.FindGameObjectsWithTag("blue");
 		findTarget ();
+		}
 	}
 	
 	public virtual void findTarget()
 	{
-		if(targetTimer <= Time.time)
-		{
-		targetTimer = targetTimer + 5f;
+		
 		if (enemyList.Length == 0)
 		{
 			enemyList = null;
@@ -58,6 +60,6 @@ public class RedBulletTurretScript : MonoBehaviour {
 		}
 		enemyTarget = enemyList [targetIndex].transform;
 		
-		}
+		
 	}
 }
