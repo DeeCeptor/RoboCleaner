@@ -16,5 +16,10 @@ public class CameraFollow : MonoBehaviour {
 		{
 			this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, this.transform.position.z);
 		}
+		else if (Scoreboard.board.gameOver)
+		{
+			this.GetComponent<Camera>().orthographicSize += Time.deltaTime;
+			this.GetComponent<Camera>().orthographicSize = Mathf.Min(100, this.GetComponent<Camera>().orthographicSize);
+		}
 	}
 }
