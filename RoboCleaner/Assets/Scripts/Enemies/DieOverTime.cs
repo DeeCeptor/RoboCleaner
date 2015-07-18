@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DieOverTime : MonoBehaviour {
 public float timerToDie = 0;
-public float LifeSpan = 4;
+public float LifeSpan = 4f;
 	// Use this for initialization
 	void Start () {
 	timerToDie = Time.time + LifeSpan;

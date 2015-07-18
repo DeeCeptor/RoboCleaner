@@ -23,6 +23,12 @@ public class BlueBulletTurretScript : MonoBehaviour {
 				attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 				BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();
 				projectile.target = enemyTarget.transform.position;
+				Vector3 dir = enemyTarget.position - transform.position;
+				
+				//diff.Normalize();
+				
+				float rot_z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+				attack.rotation = Quaternion.Euler(0f, 0f, rot_z-180);
 			}
 		}
 		if(targetTimer <= Time.time)

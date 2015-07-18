@@ -9,9 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 451404}
   - 212: {fileID: 21200226}
-  m_Layer: 0
-  m_Name: Laser
-  m_TagString: Untagged
+  - 114: {fileID: 11416590}
+  - 61: {fileID: 6117250}
+  - 114: {fileID: 11482706}
+  m_Layer: 13
+  m_Name: RedLaser
+  m_TagString: redBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,11 +26,49 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.4473419, y: 8.92148781, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 47.7999992, y: -20.2806778, z: 0}
+  m_LocalScale: {x: 750, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6117250
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158924}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: .0549999997, y: 0}
+  serializedVersion: 2
+  m_Size: {x: .209999993, y: .319999993}
+--- !u!114 &11416590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a67bcdc1c1cd8429f8591acc12de1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 100
+--- !u!114 &11482706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aadc69166e71b479ae6b339da11244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerToDie: 0
+  LifeSpan: 4
 --- !u!212 &21200226
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -52,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4d30a01381593614faddf490dffe5994, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd7b888284ca71f44a681e7bc7d277e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -60,7 +101,31 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: redBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackDamage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158924}
