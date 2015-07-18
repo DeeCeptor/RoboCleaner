@@ -27,22 +27,22 @@ public class Spawner : MonoBehaviour {
 			redShips = GameObject.FindGameObjectsWithTag("red");
 			if(blueShips.Length > redShips.Length)
 			{
-			Instantiate (redShips[Random.Range(0,redShips.Length-1)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+				Instantiate (redSpawnable[Random.Range(0,redSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 			}
 			else if(redShips.Length > blueShips.Length)
 			{
-				Instantiate (blueShips[Random.Range(0,redShips.Length-1)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+				Instantiate (blueSpawnable[Random.Range(0,blueSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 			}
 			else if(redShips.Length == blueShips.Length)
 			{
 				int rando = Random.Range (0,1);
 				if(rando == 0)
 				{
-					Instantiate (redShips[Random.Range(0,redShips.Length-1)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+					Instantiate (redSpawnable[Random.Range(0,redSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 				}
 				if(rando == 1)
 				{
-					Instantiate (blueShips[Random.Range(0,redShips.Length-1)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
+					Instantiate (blueSpawnable[Random.Range(0,blueSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 				}
 			}
 			if(spawnDelay>0.25f)

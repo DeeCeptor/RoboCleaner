@@ -10,6 +10,7 @@ TagManager:
   - red
   - blueBullet
   - redBullet
+  - Wall
   layers:
   - Default
   - TransparentFX

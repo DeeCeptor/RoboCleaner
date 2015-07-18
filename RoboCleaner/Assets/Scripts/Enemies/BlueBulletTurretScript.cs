@@ -7,6 +7,7 @@ public class BlueBulletTurretScript : MonoBehaviour {
 	private float attackTimer = 0;
 	public Transform attackType;
 	public float range = 100f;
+	public float attackSpeed = 2f;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,9 +15,9 @@ public class BlueBulletTurretScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(attackTimer <= Time.time && enemyList.Length > 0){
+		if(attackTimer <= Time.time && enemyList.Length > 0 && enemyTarget!=null){
 			if((enemyTarget.transform.position.magnitude - transform.position.magnitude) < range){
-				attackTimer = Time.time + 2f;
+				attackTimer = Time.time + attackSpeed;
 				Transform attack = null;
 				attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 				BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();

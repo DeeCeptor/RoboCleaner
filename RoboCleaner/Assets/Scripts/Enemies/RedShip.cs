@@ -8,7 +8,7 @@ public class RedShip : MonoBehaviour {
 	public int debrisAmount = 5;
 	public Transform debris;
 	public bool hitWall = false;
-public int health = 100;
+	public int health = 100;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,7 +19,7 @@ public int health = 100;
 		if(moveTimer <= Time.time){
 		hitWall = false;
 			moveTimer = Time.time + 2f;
-			moveDir = Random.Range(0,4);
+			moveDir = Random.Range(0,5);
 			}
 		if(moveDir == 1){
 			GetComponent<Rigidbody2D>().velocity = new Vector2(0,speed);
@@ -43,7 +43,7 @@ public int health = 100;
 		}
 	}
 
-	void OnTrigger2D(Collider2D otherCollider)
+	void OnTriggerEnter2D(Collider2D otherCollider)
 	{
 		if(otherCollider.gameObject.tag == "blueBullet" && otherCollider.gameObject.layer == 13)
 		{
@@ -53,18 +53,6 @@ public int health = 100;
 		}
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{
-			if(moveDir == 1){
-				GetComponent<Rigidbody2D>().velocity = new Vector2(0,-speed);
-			}
-			if(moveDir == 2){
-				GetComponent<Rigidbody2D>().velocity = new Vector2(0,speed);
-			}
-			if(moveDir == 3){
-				GetComponent<Rigidbody2D>().velocity = new Vector2(-speed,0);
-			}
-			if(moveDir == 4){
-				GetComponent<Rigidbody2D>().velocity = new Vector2(speed,0);
-			}
 		}
 		
 	}
