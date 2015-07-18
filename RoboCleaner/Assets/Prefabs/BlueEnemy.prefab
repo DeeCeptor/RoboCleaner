@@ -106,6 +106,7 @@ MonoBehaviour:
   attackType: {fileID: 499750, guid: 9d05449799166724c9a95408f7a1a302, type: 2}
   range: 50
   attackSpeed: 2
+  targetTimer: 0
 --- !u!114 &11420794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,7 +122,7 @@ MonoBehaviour:
   speed: 2
   moveTimer: 0
   debrisAmount: 5
-  debris: {fileID: 0}
+  debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
   hitWall: 0
   health: 100
   chosen: 0
@@ -193,6 +194,10 @@ Prefab:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: debris
+      value: 
+      objectReference: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}
