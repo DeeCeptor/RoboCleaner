@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RedSwoop : RedShip {
 	public bool chosen = false;
+	public float turnspeed = 0.03f;
 	// Use this for initialization
 	void Start () {
 	
@@ -28,10 +29,10 @@ public class RedSwoop : RedShip {
 		}
 		GetComponent<Rigidbody2D>().velocity = transform.up * speed;
 		if(moveDir == 1){
-			GetComponent<Rigidbody2D>().AddTorque(-0.02f);
+			GetComponent<Rigidbody2D>().AddTorque(-turnspeed);
 		}
 		if(moveDir == 2){
-			GetComponent<Rigidbody2D>().AddTorque(0.02f);
+			GetComponent<Rigidbody2D>().AddTorque(turnspeed);
 		}
 	}
 	

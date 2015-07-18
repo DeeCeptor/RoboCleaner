@@ -12,8 +12,9 @@ public class Spawner : MonoBehaviour {
 	public Transform BottomWall;
 	public Transform RightWall;
 	public Transform LeftWall;
-	private float spawnDelay = 2.5f;
+	private float spawnDelay = 5f;
 	public float spawnTimer = 0f;
+	public int maxShips = 40;
 	// Use this for initialization
 	void Start () {
 	}
@@ -25,6 +26,7 @@ public class Spawner : MonoBehaviour {
 			spawnTimer = Time.time + spawnDelay;
 			blueShips = GameObject.FindGameObjectsWithTag("blue");
 			redShips = GameObject.FindGameObjectsWithTag("red");
+			if((redShips.Length + blueShips.Length) <=maxShips){
 			if(blueShips.Length > redShips.Length)
 			{
 				Instantiate (redSpawnable[Random.Range(0,redSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
@@ -45,10 +47,11 @@ public class Spawner : MonoBehaviour {
 					Instantiate (blueSpawnable[Random.Range(0,blueSpawnable.Length)],new Vector3(Random.Range (LeftWall.position.x,RightWall.position.x), Random.Range (BottomWall.position.y,TopWall.position.y),transform.position.z),transform.rotation);
 				}
 			}
-			if(spawnDelay>0.25f)
+			if(spawnDelay>0.2f)
 			{
 			spawnDelay = spawnDelay - 0.1f;
 			}
+		}
 		}
 	
 	

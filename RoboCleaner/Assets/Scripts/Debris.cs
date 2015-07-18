@@ -6,11 +6,12 @@ public class Debris : MonoBehaviour
 	private bool beingPulled = false;
 	private GameObject pulledTowards;
 	private float pullSpeedFactor = 0.05f;
+	private float deathTimer;
 
 
 	void Start () 
 	{
-		
+		deathTimer = Time.time + 60;
 	}
 	
 	void Update () 
@@ -20,6 +21,10 @@ public class Debris : MonoBehaviour
 			// Move towards player, the closer they are the more quickly
 			Vector3 diff = this.transform.position - pulledTowards.transform.position;
 			this.transform.position -= diff / diff.magnitude * pullSpeedFactor;
+		}
+		if(deathTimer<Time.time)
+		{
+			GameObject.Destroy(this.gameObject);
 		}
 	}
 

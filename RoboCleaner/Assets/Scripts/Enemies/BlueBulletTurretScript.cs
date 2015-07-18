@@ -8,6 +8,7 @@ public class BlueBulletTurretScript : MonoBehaviour {
 	public Transform attackType;
 	public float range = 100f;
 	public float attackSpeed = 2f;
+	public float targetTimer = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,8 +25,12 @@ public class BlueBulletTurretScript : MonoBehaviour {
 				projectile.target = enemyTarget.transform.position;
 			}
 		}
-		enemyList = GameObject.FindGameObjectsWithTag("red");
-		findTarget ();
+		if(targetTimer <= Time.time)
+		{
+			targetTimer = targetTimer + 5f;
+			enemyList = GameObject.FindGameObjectsWithTag("red");
+			findTarget ();
+		}
 	}
 	
 	public virtual void findTarget()
