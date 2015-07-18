@@ -13,7 +13,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 114: {fileID: 11457618}
   - 114: {fileID: 11466252}
-  - 82: {fileID: 8282172}
+  - 82: {fileID: 8214556}
   m_Layer: 13
   m_Name: RedBullet
   m_TagString: redBullet
@@ -61,7 +61,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .119999997
---- !u!82 &8282172
+--- !u!82 &8214556
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -72,7 +72,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0d7027a5ae841f4a9aa3f16d5d81ff1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .100000001
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -81,7 +81,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
