@@ -104,10 +104,13 @@ public class Spawner : MonoBehaviour {
 		}
 			
 		}
-		if(spawnDelay>minSpawnTimer && difficultyTimer < Time.time)
+		if(difficultyTimer < Time.time)
 		{
 			difficultyTimer = difficultyTimer + difficultyincrements;
+			if(spawnDelay>minSpawnTimer)
+			{
 			spawnDelay = spawnDelay - timerLowerBy;
+			}
 			frigateChanceStart = frigateChanceStart + frigateIncrement;
 			corvetteChanceStart = corvetteChanceStart + corvetteIncrement;
 		}

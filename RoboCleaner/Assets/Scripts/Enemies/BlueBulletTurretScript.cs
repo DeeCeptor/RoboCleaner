@@ -18,7 +18,7 @@ public class BlueBulletTurretScript : MonoBehaviour {
 	void FixedUpdate () {
 		if(attackTimer <= Time.time && enemyList.Length > 0 && enemyTarget!=null){
 			if((enemyTarget.transform.position.magnitude - transform.position.magnitude) < range){
-				attackTimer = Time.time + attackSpeed;
+				attackTimer = Time.time + attackSpeed + (Random.Range(0,10)/10f);
 				Transform attack = null;
 				attack = (Transform)Instantiate (attackType,transform.position, transform.rotation);
 				BulletScript projectile = attack.gameObject.GetComponent<BulletScript>();
