@@ -52,6 +52,7 @@ public class ZoombaSpawner : MonoBehaviour
 		Debug.Log("Starting game over sequence");
 		//FadeManager.fader.fadeOut(6, true);
 
+		Scoreboard.board.gameOver = true;
 		Scoreboard.board.submitScore();
 		// Wait a bit before kicking the player out
 		yield return new WaitForSeconds(3f);

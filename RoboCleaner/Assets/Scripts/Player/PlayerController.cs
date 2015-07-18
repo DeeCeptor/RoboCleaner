@@ -117,10 +117,23 @@ public class PlayerController : MonoBehaviour
 	}
 
 
-	public void TakeHit()
+	public void TakeHit(Collider2D aggressor)
 	{
 		if (!isInvulnerable())
+		{
+			if (!Scoreboard.board.died)
+			{
+				Scoreboard.board.unlockTrophy(35398);
+				Scoreboard.board.died = true;
+			}
+			if (aggressor.gameObject.name.Contains("Laser") && !Scoreboard.board.lazored)
+			{
+				Scoreboard.board.unlockTrophy(35402);
+				Scoreboard.board.lazored = true;
+			}
+
 			Die();	// Hit a bullet, you're dead
+		}
 	}
 	public void Die()
 	{
@@ -152,7 +165,7 @@ public class PlayerController : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer("bullet"))
 		{
-			TakeHit();	// We've hit a bullet!
+			TakeHit(other);	// We've hit a bullet!
 		}
 	}
 }
