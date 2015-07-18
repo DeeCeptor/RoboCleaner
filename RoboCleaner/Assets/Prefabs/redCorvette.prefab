@@ -157,6 +157,8 @@ MonoBehaviour:
   health: 250
   explosion: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
   rotate: 0
+  ticketScore: 250
+  ticketed: 0
   target: {fileID: 0}
   targetTimer: 0
   enemyList: []
@@ -283,6 +285,10 @@ Prefab:
       propertyPath: explosion
       value: 
       objectReference: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ticketScore
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131394}

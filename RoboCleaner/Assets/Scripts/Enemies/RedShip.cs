@@ -11,6 +11,8 @@ public class RedShip : MonoBehaviour {
 	public int health = 100;
 	public Transform explosion;
 	public int rotate;
+	public int ticketScore = 100;
+	public bool ticketed = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -62,6 +64,14 @@ public class RedShip : MonoBehaviour {
 			{
 				debrisMade.GetComponent<Rigidbody2D>().velocity = otherCollider.gameObject.GetComponent<Rigidbody2D>().velocity;
 			}
+		}
+		if(otherCollider.gameObject.tag == "Player" && otherCollider.gameObject.layer == 14 && ticketed == false)
+		{
+			StartCoroutine(Scoreboard.board.modifyScore(ticketScore));
+			ticketed = true;
+			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
+			score.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z -5);
+			score.GetComponent<TextMesh>().text = "fined " + ticketScore + " for littering";
 		}
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{

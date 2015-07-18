@@ -203,6 +203,9 @@ MonoBehaviour:
   hitWall: 0
   health: 1000
   explosion: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
+  rotate: 0
+  ticketScore: 500
+  ticketed: 0
 --- !u!114 &11482942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,6 +346,10 @@ Prefab:
       propertyPath: explosion
       value: 
       objectReference: {fileID: 490290, guid: 7e5bd60eecdee8e46a5c1b7dc3ae7afd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ticketScore
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194064}
