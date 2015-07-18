@@ -5,6 +5,8 @@ using GameJolt.API.Objects;
 public class Menu : MonoBehaviour 
 {
 	bool isSignedIn = false;
+	bool leader = false;
+
 	void Start () 
 	{
 		isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
@@ -20,6 +22,7 @@ public class Menu : MonoBehaviour
 	}
 	void ShowLeaderboards()
 	{
+		leader = true;
 		GameJolt.UI.Manager.Instance.ShowLeaderboards(leaderboardCallback);
 	}
 	void StartGame()
@@ -57,6 +60,8 @@ public class Menu : MonoBehaviour
 
 	void OnGUI()
 	{
+		if(!leader)
+		{
 		if (!isSignedIn)
 		{
 			if (GUI.Button(new Rect(300,100,200,50), "Sign into Gamejolt"))
@@ -70,8 +75,9 @@ public class Menu : MonoBehaviour
 				StartGame();			
 			if (GUI.Button(new Rect(300,200,200,50), "How to Play"))
 				HowToPlay();
-			if (GUI.Button(new Rect(300,300,200,50), "Show Leaderboard"))
+			if (GUI.Button(new Rect(300,50,200,50), "Show Leaderboard"))
 				ShowLeaderboards();
+		}
 		}
 	}
 }

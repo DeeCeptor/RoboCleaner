@@ -83,6 +83,7 @@ namespace GameJolt.UI.Controllers
 			GameJolt.API.Scores.Get((GameJolt.API.Objects.Score[] scores) => {
 				if (scores != null)
 				{
+					Debug.Log ("SetScores");
 					scoresScrollRect.verticalNormalizedPosition = 0;
 
 					// Create the right number of children.
@@ -96,10 +97,12 @@ namespace GameJolt.UI.Controllers
 					
 					animator.SetTrigger("HideLoadingIndicator");
 					animator.SetTrigger("Unlock");
+					GameObject.Find("GameJoltAPI/UI/LeaderboardPanel").transform.FindChild("ScrollView").gameObject.SetActive(true);
 				}
 				else
 				{
 					// TODO: Show error notification
+					Debug.Log ("ERROR");
 					animator.SetTrigger("HideLoadingIndicator");
 					Dismiss(false);
 				}

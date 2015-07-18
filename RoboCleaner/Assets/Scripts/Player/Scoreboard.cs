@@ -165,7 +165,7 @@ public class Scoreboard : MonoBehaviour
 	public void submitScore()
 	{
 		if (GameJolt.API.Manager.Instance != null && GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
-			GameJolt.API.Scores.Add(score, score + " kilograms cleared", 0, "", submitScoreCallback);	
+			GameJolt.API.Scores.Add(score, score + "", 0, "", submitScoreCallback);	
 	}
 	void submitScoreCallback(bool success)
 	{

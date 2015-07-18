@@ -575,10 +575,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   time: 0
+  debrisGotten: 0
   livesText: {fileID: 160132}
   scoreText: {fileID: 130996}
   PauseMenu: {fileID: 179490}
   timeText: {fileID: 126856}
+  gameOver: 0
+  died: 0
+  lazored: 0
 --- !u!114 &11486824
 MonoBehaviour:
   m_ObjectHideFlags: 1
