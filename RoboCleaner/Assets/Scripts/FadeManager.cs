@@ -26,15 +26,18 @@ public class FadeManager : MonoBehaviour {
 		alphaFadeValue = 1;
 		fadingOverTime = overTime;
 		fadingIn = true;
+		fadingOut = false;
 	}
 	/**
 	 * Starts transparent, fading to black
+	 * Permanent means it remains black after fading out
 	 */ 
-	public void fadeOut(float overTime)
+	public void fadeOut(float overTime, bool permanent)
 	{
 		alphaFadeValue = 0;
 		fadingOverTime = overTime;
 		fadingOut = true;
+		fadingIn = false;
 	}
 
 	void Update () 

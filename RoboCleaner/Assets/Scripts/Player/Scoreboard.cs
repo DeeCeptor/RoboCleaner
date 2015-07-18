@@ -80,7 +80,15 @@ public class Scoreboard : MonoBehaviour
 		scoreText.GetComponent<Text>().text = "" + score;
 	}
 
-
+	void ShowLeaderboards()
+	{
+		GameJolt.UI.Manager.Instance.ShowLeaderboards(leaderBoardCallback);
+	}
+	public void leaderBoardCallback(bool success)
+	{
+		if (!success)
+			ReturnToMenu();
+	}
 	public void ReturnToMenu()
 	{
 		Application.LoadLevel("Menu");
@@ -89,7 +97,7 @@ public class Scoreboard : MonoBehaviour
 
 	public void submitScore()
 	{
-		if (GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
+		if (GameJolt.API.Manager.Instance != null && GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
 			GameJolt.API.Scores.Add(score, "Cleared " + score + " pieces of debris", 0, "", submitScoreCallback);	
 	}
 	void submitScoreCallback(bool success)
