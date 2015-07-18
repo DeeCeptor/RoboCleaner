@@ -87,6 +87,22 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &130446683 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 197720, guid: 73d69cb28dea07641a072dd2b51d152d, type: 2}
+  m_PrefabInternal: {fileID: 888454621}
+--- !u!114 &130446690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130446683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ddb99460b0aa440a13c4e22f148bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackTexture: {fileID: 2800000, guid: a02137e17227df149811a32de2f47a38, type: 3}
 --- !u!1001 &448264055
 Prefab:
   m_ObjectHideFlags: 0
@@ -636,33 +652,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 21262284, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6d3522348a9de6844818db982adc2ea7,
-        type: 3}
-    - target: {fileID: 449482, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 449482, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21228998, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 21262388, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 185178, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 21262284, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9931c0002e34a6c4bbd62abe0bb1111f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2128044085 stripped

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
 	private float movementFactor = 1;	// Applied to acceleration and rotation. Are we using our full engine force?
 	private GameObject colliderArt;
+	private GameObject engineEmitter;
+	private GameObject smokeEmitter;
 
 	private float invulnerability = 0;	// Amount of time we're invulnerable for. If above 0, we're invulnerable
 
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
 	{
 		colliderArt = this.transform.Find("Collider/ColliderArt").gameObject;
 		colliderArt.SetActive(false);
+		engineEmitter = this.transform.Find("ShipArt/Thruster System").gameObject;
+		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
 	}
 	
 
@@ -45,6 +49,13 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButton("Brake"))
 		{
 			GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * brakeFactor;
+
+			// Turn off engine animation
+			if(this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
+			{
+				this.engineEmitter.GetComponent<ParticleSystem>().Stop();
+				this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
+			}
 		}
 		// Not braking, so take input
 		else
@@ -67,6 +78,20 @@ public class PlayerController : MonoBehaviour
 				GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration * accelerationForce * movementFactor);
 
 				// Turn on booster firing, leave trail
+				if(!this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
+				{
+					this.engineEmitter.GetComponent<ParticleSystem>().Play();
+					this.smokeEmitter.GetComponent<ParticleSystem>().Play();
+				}
+			}
+			else
+			{
+				// Turn off engine animation
+				if(this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
+				{
+					this.engineEmitter.GetComponent<ParticleSystem>().Stop();
+					this.smokeEmitter.GetComponent<ParticleSystem>().Stop();
+				}
 			}
 		}
 	}
