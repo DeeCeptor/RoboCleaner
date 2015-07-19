@@ -55,11 +55,14 @@ public class BlueBulletTurretScript : MonoBehaviour {
 		// find closest player
 		for(int i = 0; i < enemyList.Length; i++)
 		{
+			if(enemyList[i]!=null)
+			{
 			heading = enemyList[i].transform.position - transform.position;
 			if(heading.magnitude < curLow)
 			{
 				curLow = heading.magnitude;
 				targetIndex = i;
+			}
 			}
 		}
 		enemyTarget = enemyList [targetIndex].transform;
