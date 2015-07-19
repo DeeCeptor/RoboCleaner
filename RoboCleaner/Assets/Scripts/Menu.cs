@@ -16,10 +16,11 @@ public class Menu : MonoBehaviour
 	void Start () 
 	{
 		isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
-		Debug.Log("Signed in? " + isSignedIn);
 
-		//GameJolt.API.Objects.User user = new GameJolt.API.Objects.User("DeeCeptor", "Quadruple4");
-		//user.SignIn(signInCallback);
+		if (isSignedIn)
+			GameJolt.UI.Manager.Instance.QueueNotification("Logged in with GameJolt account");
+
+		Debug.Log("Signed in? " + isSignedIn);
 	}
 
 	public void SignIn()
@@ -50,6 +51,7 @@ public class Menu : MonoBehaviour
 		{
 			Debug.Log("The user signed in!");
 			isSignedIn = true;
+			GameJolt.UI.Manager.Instance.QueueNotification("Logged in with GameJolt account");
 		}
 		else
 		{
