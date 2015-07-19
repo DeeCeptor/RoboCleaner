@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour {
 	void Start () 
 	{
 		endingScalingStars = GameObject.Find("Main Camera").transform.FindChild("Very Far Stars").gameObject;
-		endingScalingStars = GameObject.Find("Main Camera").transform.FindChild("Nebula").gameObject;
+		endingScalingNebula = GameObject.Find("Main Camera").transform.FindChild("Nebula").gameObject;
 	}
 	
 	void FixedUpdate () 
