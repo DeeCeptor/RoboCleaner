@@ -14,11 +14,10 @@ public class PlayerController : MonoBehaviour
 	private GameObject smokeEmitter;
 	private GameObject brakeEmitter;
 	private GameObject heatEmitter;
-	
+
 	private AudioSource engineSound;
 
 	private float invulnerability = 0;	// Amount of time we're invulnerable for. If above 0, we're invulnerable
-
 
 	void Start () 
 	{
@@ -28,8 +27,9 @@ public class PlayerController : MonoBehaviour
 		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
 		brakeEmitter = this.transform.Find("ShipArt/Brake System").gameObject;
 		heatEmitter = this.transform.Find("ShipArt/Heat System").gameObject;
-		
 		engineSound = GetComponent<AudioSource>();
+
+		this.makeInvulnerable(5);
 	}
 	
 
@@ -39,7 +39,9 @@ public class PlayerController : MonoBehaviour
 		{
 			// Update invulnerability
 			if (isInvulnerable())
+			{
 				invulnerability -= Time.deltaTime;
+			}
 
 			float rotation = -Input.GetAxis("Horizontal");
 			float acceleration = Input.GetAxis("Vertical");

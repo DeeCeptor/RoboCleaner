@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 
 public class SceneFadeInOut : MonoBehaviour
 {
@@ -9,15 +9,18 @@ public class SceneFadeInOut : MonoBehaviour
 	private bool sceneStarting = true; // Whether or not the scene is still fading in.
 	private bool sceneEnding = false;
 
-	public GUITexture guiTexture;
+	public Image guiTexture;
 
 	public static SceneFadeInOut fader;
 
 	void Awake ()
 	{
 		// Set the texture so that it is the the size of the screen and covers it.
-		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
+		//guiTexture.sc = new Rect(0f, 0f, Screen.width, Screen.height);
+		guiTexture.enabled = true;
 		fader = this;
+
+		StartScene();
 	}
 	
 	void Update()
@@ -48,6 +51,7 @@ public class SceneFadeInOut : MonoBehaviour
 		guiTexture.enabled = true;
 		sceneStarting = true;
 		sceneEnding = false;
+		fadeSpeed = 0.6f;
 
 		// If the texture is almost clear…
 		if(guiTexture.color.a <= 0.05f)
@@ -67,6 +71,7 @@ public class SceneFadeInOut : MonoBehaviour
 		guiTexture.enabled = true;
 		sceneEnding = true;
 		sceneStarting = false;
+		fadeSpeed = 1.4f;
 
 		// Start fading towards black.
 		FadeToBlack();
