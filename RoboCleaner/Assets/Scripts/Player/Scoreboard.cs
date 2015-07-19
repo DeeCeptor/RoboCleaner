@@ -206,7 +206,7 @@ public class Scoreboard : MonoBehaviour
 		score = Mathf.Max(0, score);	// Score can't go below 0
 		scoreText.GetComponent<Text>().text = "" + score;
 
-		cleaniplier.value += ((float) amount) / (multiplier * 500);
+		cleaniplier.value += ((float) amount) / (multiplier * 400);
 		if (cleaniplier.value >= 1)
 			addMultiplierLevel();
 
