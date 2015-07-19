@@ -18,9 +18,13 @@ public class Scoreboard : MonoBehaviour
 	public GameObject scoreText;
 	public GameObject PauseMenu;
 	public GameObject timeText;
+	public Slider cleaniplier;
+	public Text multiplierText;
 
 	public bool gameOver = false;
 
+	public float multiplier = 1;
+	public float multiplierLevel = 0;
 	private int score;	// Value >= 0
 
 	// TROPHIES
@@ -40,7 +44,7 @@ public class Scoreboard : MonoBehaviour
 
 	void Update () 
 	{
-		if (Input.GetButtonDown("Pause"))
+		if (Input.GetButtonDown("Pause") && !gameOver)
 		{
 			if (Time.timeScale == 0)
 			{
@@ -54,6 +58,7 @@ public class Scoreboard : MonoBehaviour
 			}
 		}
 
+		// Not paused and not game over
 		if (Time.timeScale != 0 && !gameOver)
 		{
 			// Timer is running if we're not paused
@@ -79,7 +84,19 @@ public class Scoreboard : MonoBehaviour
 				unlockTrophy(35406);
 				survivor = true;
 			}
+
+
+			// Update cleaniplier
+			cleaniplier.value -= Time.deltaTime / 10;
+			if (cleaniplier.value <= 0)
+				lowerMultiplierLevel();
 		}
+	}
+
+
+	public int getModifiedScore(int initial_score)
+	{
+		return (int) (initial_score * multiplier);
 	}
 
 
@@ -108,11 +125,37 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
+	public void addMultiplierLevel()
+	{
+		cleaniplier.value = 0.4f;
+		multiplier += 0.2f;
+		setMultiplierText();
+	}
+	public void lowerMultiplierLevel()
+	{
+		if (multiplier > 1.0f)
+		{
+			// Lower level if we can
+			cleaniplier.value = 0.9f;
+			multiplier -= 0.2f;
+			setMultiplierText();
+		}
+	}
+	public void setMultiplierText()
+	{
+		multiplierText.text = multiplier + "X";
+	}
+
+
 	public IEnumerator modifyScore(int amount, ScoreType type)
 	{
 		score += amount;
 		score = Mathf.Max(0, score);	// Score can't go below 0
 		scoreText.GetComponent<Text>().text = "" + score;
+
+		cleaniplier.value += ((float) amount) / 100;
+		if (cleaniplier.value >= 1)
+			addMultiplierLevel();
 
 		if (amount > 0 && type == ScoreType.DEBRIS)
 			debrisGotten++;
