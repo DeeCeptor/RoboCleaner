@@ -26,7 +26,7 @@ public class Debris : MonoBehaviour
 			this.GetComponent<Rigidbody2D>().velocity = Vector3.Normalize(pulledTowards.transform.position - this.transform.position) * diff.magnitude * 8;
 			//this.transform.position -= diff / diff.magnitude * pullSpeedFactor * Time.deltaTime;
 		}
-		if(deathTimer<Time.time)
+		if(deathTimer <= Time.time && (!this.GetComponent<Renderer>().isVisible || (Scoreboard.board != null && Scoreboard.board.gameOver)))
 		{
 			GameObject.Destroy(this.gameObject);
 		}
