@@ -56,7 +56,7 @@ public class BlueCorvette : RedCorvette {
 		{
 			ticketed = true;
 			int n_score = Scoreboard.board.getModifiedScore(ticketScore);
-			StartCoroutine(Scoreboard.board.modifyScore(n_score, Scoreboard.ScoreType.DEBRIS));
+			StartCoroutine(Scoreboard.board.modifyScore(n_score, Scoreboard.ScoreType.TICKET));
 			
 			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
 			score.transform.position = this.transform.position;

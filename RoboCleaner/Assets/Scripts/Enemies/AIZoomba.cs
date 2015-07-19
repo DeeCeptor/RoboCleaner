@@ -7,11 +7,11 @@ public class AIZoomba : MonoBehaviour {
 	public int debrisGathered = 0;
 	public float turnSpeed = 2f;
 	private float movementFactor = 1;	// Applied to acceleration and rotation. Are we using our full engine force?
-	private GameObject colliderArt;
-	private GameObject engineEmitter;
-	private GameObject smokeEmitter;
-	private GameObject brakeEmitter;
-	private GameObject heatEmitter;
+	public GameObject colliderArt;
+	public GameObject engineEmitter;
+	public GameObject smokeEmitter;
+	public GameObject brakeEmitter;
+	public GameObject heatEmitter;
 	public Transform target;
 	public GameObject[] debrisList;
 	public Transform debris;
@@ -21,6 +21,10 @@ public class AIZoomba : MonoBehaviour {
 	{
 		colliderArt = this.transform.Find("Collider/ColliderArt").gameObject;
 		colliderArt.SetActive(false);
+		engineEmitter = this.transform.Find("ShipArt/Thruster System").gameObject;
+		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
+		brakeEmitter = this.transform.Find("ShipArt/Brake System").gameObject;
+		heatEmitter = this.transform.Find("ShipArt/Heat System").gameObject;
 	}
 	
 	// Update is called once per frame

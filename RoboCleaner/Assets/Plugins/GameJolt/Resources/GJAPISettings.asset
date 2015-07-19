@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GJAPISettings
   m_EditorClassIdentifier: 
   gameID: 80229
-  privateKey: 2386179ceb4358e26ca4eb14297f7cd0
+  privateKey: 0aeac1a8ab0549d7e35f40fb8f60f786
   timeout: 10
   autoPing: 1
   useCaching: 1

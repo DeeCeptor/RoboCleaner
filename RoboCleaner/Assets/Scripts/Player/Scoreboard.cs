@@ -70,11 +70,9 @@ public class Scoreboard : MonoBehaviour
 			// Timer is running if we're not paused
 			time += Time.deltaTime;
 
+			timeText.GetComponent<Text>().text = getFormattedTime(time);
 			int minutes = (int) ((time) / 60.0f);
-			int seconds = (int) (time % 60);
-			int milliseconds = (int) ((time - (minutes * 60) - seconds) * 100);
-			timeText.GetComponent<Text>().text = ("" + minutes).PadLeft(2, '0') + ":" + ("" + seconds).PadLeft(2, '0') + "." + ("" + milliseconds).PadLeft(2, '0');
-		
+
 			if (minutes > 4 && !greenShirt)
 			{
 				unlockTrophy(35397);
@@ -97,6 +95,15 @@ public class Scoreboard : MonoBehaviour
 			if (cleaniplier.value <= 0)
 				lowerMultiplierLevel();
 		}
+	}
+
+
+	public string getFormattedTime(float in_time)
+	{
+		int minutes = (int) ((in_time) / 60.0f);
+		int seconds = (int) (in_time % 60);
+		int milliseconds = (int) ((in_time - (minutes * 60) - seconds) * 100);
+		return ("" + minutes).PadLeft(2, '0') + ":" + ("" + seconds).PadLeft(2, '0') + "." + ("" + milliseconds).PadLeft(2, '0');
 	}
 
 
@@ -265,6 +272,34 @@ public class Scoreboard : MonoBehaviour
 	void submitScoreCallback(bool success)
 	{
 		Debug.Log("Submit Score Callback worked? " + success);
+		submitDebris();
+	}
+	void submitDebris()
+	{
+		GameJolt.API.Scores.Add(debrisGotten, debrisGotten + " gotten", 83163, "", submitDebrisCallback);	
+	}
+	void submitDebrisCallback(bool success)
+	{
+		Debug.Log("Submit Debris Callback worked? " + success);
+		submitTime();
+	}
+	void submitTime()
+	{
+		int seconds = (int) time;
+		GameJolt.API.Scores.Add(seconds, getFormattedTime(time), 83936, "", submitTimeCallback);	
+	}
+	void submitTimeCallback(bool success)
+	{
+		Debug.Log("Submit Time Callback worked? " + success);
+		submitTickets();
+	}
+	void submitTickets()
+	{
+		GameJolt.API.Scores.Add(shipsTicketed, shipsTicketed + " angry captains", 83937, "", submitTicketsCallback);	
+	}
+	void submitTicketsCallback(bool success)
+	{
+		Debug.Log("Submit Tickets Callback worked? " + success);
 	}
 
 	/*
