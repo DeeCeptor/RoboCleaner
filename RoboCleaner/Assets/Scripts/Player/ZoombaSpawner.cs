@@ -31,9 +31,12 @@ public class ZoombaSpawner : MonoBehaviour
 	{
 		Debug.Log("Died! Beginning spawning process");
 
-		//FadeManager.fader.fadeOut(6, true);
+		GameObject timeToClean = GameObject.Find("UICanvas").transform.FindChild("TimeToClean").gameObject;
+		timeToClean.GetComponent<Image>().enabled = true;
+		timeToClean.GetComponent<AudioSource>().Play();
 
 		SceneFadeInOut.fader.EndScene();
+
 		// Wait a few seconds before reviving player
 		yield return new WaitForSeconds(1.5f);
 
@@ -43,7 +46,8 @@ public class ZoombaSpawner : MonoBehaviour
 		Debug.Log("Spawning new zoomba");
 
 		Scoreboard.board.modifyLivesBy(-1);	// Remove a life
-		
+		timeToClean.GetComponent<Image>().enabled = false;
+
 		// Create a new Zoomba at this position
 		GameObject newZoomba = (GameObject) Instantiate((GameObject) Resources.Load("Zoomba3000", typeof(GameObject)), this.transform.position, Quaternion.identity);
 		Camera.main.GetComponent<CameraFollow>().target = newZoomba.transform;
