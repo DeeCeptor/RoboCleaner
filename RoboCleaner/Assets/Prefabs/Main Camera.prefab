@@ -13,12 +13,12 @@ GameObject:
   - 23: {fileID: 2307218}
   - 114: {fileID: 11481398}
   m_Layer: 0
-  m_Name: Far Stars
+  m_Name: Medium Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &142158
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0d8b4059b51b7a449ac192d20d090ec4, type: 2}
+  - {fileID: 2100000, guid: 41f37e83dd6ab8c4490349b06e52c6ea, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -218,7 +218,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0d8b4059b51b7a449ac192d20d090ec4, type: 2}
+  - {fileID: 2100000, guid: 781687dd63df5c9408c1f59567a00f62, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
