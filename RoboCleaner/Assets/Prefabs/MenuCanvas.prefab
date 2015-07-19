@@ -378,7 +378,7 @@ MonoBehaviour:
 
     Kent Weiler &
 
-    William ''Suta'' Selby'
+    Suta'
 --- !u!114 &11445152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -784,7 +784,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 88.5, y: -102}
+  m_AnchoredPosition: {x: 88.5, y: -97}
   m_SizeDelta: {x: 345, y: 181}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22430236
