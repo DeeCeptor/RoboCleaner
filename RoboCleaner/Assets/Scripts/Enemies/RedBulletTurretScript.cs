@@ -35,7 +35,7 @@ public class RedBulletTurretScript : MonoBehaviour {
 		if(targetTimer <= Time.time)
 		{
 		targetTimer = targetTimer + 5f;
-		enemyList = GameObject.FindGameObjectsWithTag("blue");
+		enemyList = GameObject.Find("Spawner").GetComponent<Spawner>().blueShips;
 		findTarget ();
 		}
 	}
