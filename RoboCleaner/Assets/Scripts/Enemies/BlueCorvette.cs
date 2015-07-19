@@ -18,13 +18,16 @@ public class BlueCorvette : RedCorvette {
 			}
 			if(target != null)
 			{
+			if(turnTimer<Time.time)
+			{
+				turnTimer = Time.time+(Time.deltaTime * turnSpeed);
 				Vector3 dir = target.position - transform.position;
 				
 				//diff.Normalize();
-				
 				float rot_z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-				transform.rotation = Quaternion.Euler(0f, 0f, rot_z-90);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, rot_z-90), turnSpeed);
 				GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+			}
 			}
 			if(health <=0)
 			{

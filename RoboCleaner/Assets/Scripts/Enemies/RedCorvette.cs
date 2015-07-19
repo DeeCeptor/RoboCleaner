@@ -5,6 +5,9 @@ public class RedCorvette : RedShip {
 	public Transform target;
 	public float targetTimer;
 	public GameObject[] enemyList;
+	public float turnSpeed = 0.05f;
+	
+	public float turnTimer = 0f;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,13 +23,16 @@ public class RedCorvette : RedShip {
 	}
 	if(target != null)
 	{
+		if(turnTimer<Time.time)
+			{
+			turnTimer = Time.time+(Time.deltaTime * turnSpeed);
 			Vector3 dir = target.position - transform.position;
 			
 			//diff.Normalize();
-			
 			float rot_z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(0f, 0f, rot_z-90);
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, rot_z-90), turnSpeed);
 			GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+		}
 	}
 			if(health <=0)
 			{

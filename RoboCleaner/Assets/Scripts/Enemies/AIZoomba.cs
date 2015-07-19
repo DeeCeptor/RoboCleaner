@@ -5,7 +5,7 @@ public class AIZoomba : MonoBehaviour {
 
 	public float accelerationForce = 1f;
 	public int debrisGathered = 0;
-	
+	public float turnSpeed = 2f;
 	private float movementFactor = 1;	// Applied to acceleration and rotation. Are we using our full engine force?
 	private GameObject colliderArt;
 	private GameObject engineEmitter;
@@ -15,15 +15,12 @@ public class AIZoomba : MonoBehaviour {
 	public Transform target;
 	public GameObject[] debrisList;
 	public Transform debris;
+	public float turnTimer = 0f;
 	// Use this for initialization
 	void Start () 
 	{
 		colliderArt = this.transform.Find("Collider/ColliderArt").gameObject;
 		colliderArt.SetActive(false);
-		engineEmitter = this.transform.Find("ShipArt/Thruster System").gameObject;
-		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
-		brakeEmitter = this.transform.Find("ShipArt/Brake System").gameObject;
-		heatEmitter = this.transform.Find("ShipArt/Heat System").gameObject;
 	}
 	
 	// Update is called once per frame
@@ -35,14 +32,16 @@ public class AIZoomba : MonoBehaviour {
 			
 			
 		}
-		
-		Vector3 dir = target.position - transform.position;
+		if(turnTimer<Time.time)
+		{
+			turnTimer = Time.time+(Time.deltaTime * turnSpeed);
+			Vector3 dir = target.position - transform.position;
 		
 		//diff.Normalize();
-		
-		float rot_z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0f, 0f, rot_z-90);
-		GetComponent<Rigidbody2D>().velocity = transform.up * accelerationForce;
+			float rot_z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, rot_z-90), turnSpeed);
+			GetComponent<Rigidbody2D>().velocity = transform.up * accelerationForce;
+		}
 		
 	}
 	
@@ -89,24 +88,21 @@ public class AIZoomba : MonoBehaviour {
 			debrisList = null;
 			return;
 		}
-		//this enemy attacks the closest player
-		//closest player's index
+		//the Zoomba follows debris
+		//closest debris index
 		int targetIndex = 0;
 		//lowest distance seen yet
 		float curLow = float.PositiveInfinity;
 		Vector3 heading;
-		// find closest player
+		// find closest debri
 		for(int i = 0; i < debrisList.Length; i++)
 		{
-			if(debrisList[i].name != "redCorvette" && debrisList[i].name != "blueCorvette")
-			{
 				heading = debrisList[i].transform.position - transform.position;
 				if(heading.magnitude < curLow)
 				{
 					curLow = heading.magnitude;
 					targetIndex = i;
 				}
-			}
 		}
 		target = debrisList [targetIndex].transform;
 		

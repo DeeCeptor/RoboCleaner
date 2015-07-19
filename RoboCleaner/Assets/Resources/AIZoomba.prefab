@@ -784,9 +784,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationForce: 2
   debrisGathered: 0
+  turnSpeed: .0500000007
   target: {fileID: 0}
   debrisList: []
   debris: {fileID: 457874, guid: 2b8df892b0369c04f91d783e649e3b25, type: 2}
+  turnTimer: 0
 --- !u!120 &12043936
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -10771,7 +10773,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: turnSpeed
+      value: .0500000007
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159382}
