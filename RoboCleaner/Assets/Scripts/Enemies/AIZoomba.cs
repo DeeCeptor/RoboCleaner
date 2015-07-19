@@ -69,7 +69,7 @@ public class AIZoomba : MonoBehaviour {
 		{
 			Transform debrisMade = (Transform)Instantiate (debris, new Vector3(transform.position.x + Random.Range(-2,2),transform.position.y + Random.Range(-2,2),transform.position.z), transform.rotation);
 			debrisMade.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-200,201)/100f , Random.Range(-200,201)/100f );
-			Instantiate (debris, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
+			Instantiate (debris, new Vector3(transform.position.x + (Random.Range(-200,201)/100f),transform.position.y + (Random.Range(-200,201)/100f) ,transform.position.z), transform.rotation);
 		}
 		
 		GameObject.Destroy(this.gameObject);

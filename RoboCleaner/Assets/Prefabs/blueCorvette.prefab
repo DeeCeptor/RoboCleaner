@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21280262}
   - 114: {fileID: 11463052}
   - 50: {fileID: 5050746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 4: {fileID: 449190}
   - 212: {fileID: 21231594}
   - 114: {fileID: 11474670}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BlueBulletTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 212: {fileID: 21267906}
   - 114: {fileID: 11433966}
   - 50: {fileID: 5098892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Part4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 212: {fileID: 21279888}
   - 114: {fileID: 11452694}
   - 50: {fileID: 5012244}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Part3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DestroyedShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - 50: {fileID: 5035008}
   - 58: {fileID: 5869954}
   - 114: {fileID: 11425858}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: blueCorvette
   m_TagString: blue
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - 212: {fileID: 21276980}
   - 114: {fileID: 11468960}
   - 50: {fileID: 5043126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - 4: {fileID: 438082}
   - 212: {fileID: 21286012}
   - 114: {fileID: 11470744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BluePierceTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
