@@ -36,6 +36,7 @@ public class Scoreboard : MonoBehaviour
 	bool helper, janitor, cleaner, MrClean = false;	// Debris trophies
 	bool greenShirt, insurable, survivor = false;	// Time survival trophies
 	public bool died, lazored = false;	// Die once, Die from lazor beam
+	bool ticketMaster = false; // Issue 30 tickets
 
 	public 
 
@@ -205,7 +206,7 @@ public class Scoreboard : MonoBehaviour
 		score = Mathf.Max(0, score);	// Score can't go below 0
 		scoreText.GetComponent<Text>().text = "" + score;
 
-		cleaniplier.value += ((float) amount) / 100;
+		cleaniplier.value += ((float) amount) / (multiplier * 500);
 		if (cleaniplier.value >= 1)
 			addMultiplierLevel();
 
@@ -213,6 +214,12 @@ public class Scoreboard : MonoBehaviour
 			debrisGotten++;
 		else if (type == ScoreType.TICKET)
 			shipsTicketed++;
+
+		if (shipsTicketed > 29 && !ticketMaster)
+		{
+			unlockTrophy(35684);
+			ticketMaster = true;
+		}
 
 		if (debrisGotten > 0 && !helper)
 		{
