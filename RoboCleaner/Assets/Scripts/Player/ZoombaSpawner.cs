@@ -14,7 +14,8 @@ public class ZoombaSpawner : MonoBehaviour
 	{
 		spawner = this;
 
-		StartCoroutine(timeToClean());
+		if (Application.loadedLevelName != "Menu")
+			StartCoroutine(timeToClean());
 	}
 	
 	void Update () 
