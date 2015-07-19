@@ -7,6 +7,12 @@ public class Menu : MonoBehaviour
 	bool isSignedIn = false;
 	bool leader = false;
 
+	public GameObject buttonSignIn;
+	public GameObject buttonGuest;
+
+	public GameObject buttonStartGame;
+	public GameObject buttonLeaderboards;
+
 	void Start () 
 	{
 		isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
@@ -16,20 +22,20 @@ public class Menu : MonoBehaviour
 		//user.SignIn(signInCallback);
 	}
 
-	void SignIn()
+	public void SignIn()
 	{
 		GameJolt.UI.Manager.Instance.ShowSignIn(signInCallback); 
 	}
-	void ShowLeaderboards()
+	public void ShowLeaderboards()
 	{
 		leader = true;
 		GameJolt.UI.Manager.Instance.ShowLeaderboards(leaderboardCallback);
 	}
-	void StartGame()
+	public void StartGame()
 	{
 		Application.LoadLevel ("KevinLevel");
 	}
-	void HowToPlay()
+	public void HowToPlay()
 	{
 		Application.LoadLevel ("OtherLevel");
 	}
@@ -50,6 +56,10 @@ public class Menu : MonoBehaviour
 			Debug.Log("Closed window or failed to sign in");
 		}
 	}
+	public void changeSignIn(bool value)
+	{
+		isSignedIn = value;
+	}
 
 	
 	void Update () 
@@ -62,22 +72,33 @@ public class Menu : MonoBehaviour
 	{
 		if(!leader)
 		{
-		if (!isSignedIn)
-		{
-			if (GUI.Button(new Rect(300,100,200,50), "Sign into Gamejolt"))
-				SignIn();
-			if (GUI.Button(new Rect(300,200,200,50), "Play as Guest"))
-				isSignedIn = true;
-		}
-		else
-		{
-			if (GUI.Button(new Rect(300,100,200,50), "Start Game"))
-				StartGame();			
-			if (GUI.Button(new Rect(300,200,200,50), "How to Play"))
-				HowToPlay();
-			if (GUI.Button(new Rect(300,50,200,50), "Show Leaderboard"))
-				ShowLeaderboards();
-		}
+			if (!isSignedIn)
+			{
+				buttonSignIn.SetActive(true);
+				buttonGuest.SetActive(true);
+				//buttonSignIn.SetActive = true;
+					/*
+				if (GUI.Button(new Rect(300,100,200,50), "Sign into Gamejolt"))
+					SignIn();
+				if (GUI.Button(new Rect(300,200,200,50), "Play as Guest"))
+					isSignedIn = true;
+					*/
+			}
+			else
+			{
+				//create other buttons
+				buttonStartGame.SetActive(true);
+				buttonLeaderboards.SetActive(true);
+
+					/*
+				if (GUI.Button(new Rect(300,100,200,50), "Start Game"))
+					StartGame();			
+				if (GUI.Button(new Rect(300,200,200,50), "How to Play"))
+					HowToPlay();
+				if (GUI.Button(new Rect(300,50,200,50), "Show Leaderboard"))
+					ShowLeaderboards();
+					*/
+			}
 		}
 	}
 }
