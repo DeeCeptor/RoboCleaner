@@ -14,8 +14,15 @@ public class SpawnOnDeath : MonoBehaviour {
 	void FixedUpdate () {
 		if(timerToDie <= Time.time)
 		{
+			if(Camera.main.GetComponent<CameraFollow>().target == gameObject.transform)
+			{
+				Camera.main.GetComponent<CameraFollow>().target = (Transform)Instantiate (toSpawn, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
+			}
+			else{
 			Instantiate (toSpawn, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
+			}
 			Destroy(gameObject);
+			
 		}
 	}
 }
