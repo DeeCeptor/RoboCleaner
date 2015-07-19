@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11416590}
   - 61: {fileID: 6117250}
   - 114: {fileID: 11482706}
-  - 82: {fileID: 8269526}
+  - 82: {fileID: 8216180}
   m_Layer: 13
   m_Name: RedLaser
   m_TagString: redBullet
@@ -45,7 +45,7 @@ BoxCollider2D:
   m_Offset: {x: .0549999997, y: 0}
   serializedVersion: 2
   m_Size: {x: .209999993, y: .319999993}
---- !u!82 &8269526
+--- !u!82 &8216180
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -54,9 +54,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d0d7027a5ae841f4a9aa3f16d5d81ff1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a64e3416fe4ca2a4f90aa79ac807c1a4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .449999988
+  m_Volume: .330000013
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -88,7 +88,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: .850000024
       inSlope: 0
       outSlope: 0
       tangentMode: 0
