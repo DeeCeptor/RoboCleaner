@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 	private GameObject smokeEmitter;
 	private GameObject brakeEmitter;
 	private GameObject heatEmitter;
+	
+	private AudioSource engineSound;
 
 	private float invulnerability = 0;	// Amount of time we're invulnerable for. If above 0, we're invulnerable
 
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
 		smokeEmitter = this.transform.Find("ShipArt/Smoke System").gameObject;
 		brakeEmitter = this.transform.Find("ShipArt/Brake System").gameObject;
 		heatEmitter = this.transform.Find("ShipArt/Heat System").gameObject;
+		
+		engineSound = GetComponent<AudioSource>();
 	}
 	
 
@@ -85,6 +89,8 @@ public class PlayerController : MonoBehaviour
 				{
 					// Accelerating, add force
 					GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration * accelerationForce * movementFactor);
+					
+					engineSound.mute = false;
 
 					// Turn on booster firing, leave trail
 					if(!this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
@@ -96,6 +102,8 @@ public class PlayerController : MonoBehaviour
 				}
 				else
 				{
+					engineSound.mute = true;
+					
 					// Turn off engine animation
 					if(this.engineEmitter.GetComponent<ParticleSystem>().isPlaying) 
 					{
