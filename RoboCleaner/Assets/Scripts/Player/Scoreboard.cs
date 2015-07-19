@@ -17,6 +17,7 @@ public class Scoreboard : MonoBehaviour
 	private int shipsTicketed = 0;
 
 	public List<AudioClip> multiplierSounds;
+	public List<string> multiplierAnnouncements;
 
 	public GameObject livesText;
 	public GameObject scoreText;
@@ -135,6 +136,11 @@ public class Scoreboard : MonoBehaviour
 		cleaniplier.value = 0.4f;
 		multiplier += 0.2f;
 		setMultiplierText();
+		Vector3 pos = new Vector3(
+			Camera.main.ScreenToWorldPoint(multiplierText.transform.position).x,
+			Camera.main.ScreenToWorldPoint(multiplierText.transform.position).y,
+			0);
+		spawnMovingText(pos, "+0.2!", Vector3.up * 2, 40).transform.SetParent(Camera.main.transform);
 
 		if (multiplier >= nextMultiplierSound && multiplierSounds.Count > 0)
 		{
@@ -142,6 +148,13 @@ public class Scoreboard : MonoBehaviour
 			nextMultiplierSound++;
 			AudioSource.PlayClipAtPoint(multiplierSounds[0], Camera.main.transform.position);
 			multiplierSounds.RemoveAt(0);	// Remove the sound so we don't hear it again
+
+			// Show announcement text on screen
+			Vector3 posi = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, -1));
+			posi.z = -1;
+			string text = multiplierAnnouncements[0];
+			multiplierAnnouncements.RemoveAt(0);
+			spawnMovingText(posi, text, Vector3.down * 10, 80).transform.SetParent(Camera.main.transform);
 		}
 	}
 	public void lowerMultiplierLevel()
@@ -160,12 +173,22 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
-	public void spawnMovingText(Vector3 location, string message, Vector3 velocity)
+	public GameObject spawnMovingText(Vector3 location, string message, Vector3 velocity)
 	{
 		GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
-		score.transform.position = location;
 		score.GetComponent<Rigidbody2D>().velocity = velocity;
 		score.GetComponent<TextMesh>().text = message;
+		score.transform.position = location;
+		return score;
+	}
+	public GameObject spawnMovingText(Vector3 location, string message, Vector3 velocity, int size)
+	{
+		GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
+		score.GetComponent<Rigidbody2D>().velocity = velocity;
+		score.GetComponent<TextMesh>().text = message;
+		score.GetComponent<TextMesh>().fontSize = size;
+		score.transform.position = location;
+		return score;
 	}
 	
 	

@@ -440,7 +440,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 454945d2634461f40aba648c2d822842, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08507715f2ea664e89685bf0f263c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 2
   time: 0
   debrisGotten: 0
   multiplierSounds:
@@ -895,6 +895,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 33ce7d33f755c7345821dda0dc6944ff, type: 3}
   - {fileID: 8300000, guid: c55b66a3b9866f94690be2a854932ed6, type: 3}
   - {fileID: 8300000, guid: 98c49d90b799750448af916c661e7304, type: 3}
+  multiplierAnnouncements:
+  - CLEANING SPREE
+  - SQUEAKY CLEAN
+  - UNSTOPPABLE
+  - GODLY CLEANLINESS
   livesText: {fileID: 160132}
   scoreText: {fileID: 130996}
   PauseMenu: {fileID: 179490}
