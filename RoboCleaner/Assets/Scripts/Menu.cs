@@ -76,16 +76,18 @@ public class Menu : MonoBehaviour
 			{
 				buttonSignIn.SetActive(true);
 				buttonGuest.SetActive(true);
-				//buttonSignIn.SetActive = true;
+
 					/*
 				if (GUI.Button(new Rect(300,100,200,50), "Sign into Gamejolt"))
 					SignIn();
 				if (GUI.Button(new Rect(300,200,200,50), "Play as Guest"))
-					isSignedIn = true;
+
 					*/
 			}
 			else
 			{
+				buttonSignIn.SetActive(false);
+				buttonGuest.SetActive(false);
 				//create other buttons
 				buttonStartGame.SetActive(true);
 				buttonLeaderboards.SetActive(true);
