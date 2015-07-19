@@ -12,6 +12,7 @@ TagManager:
   - redBullet
   - Wall
   - AIZoomba
+  - deathMessage
   layers:
   - Default
   - TransparentFX

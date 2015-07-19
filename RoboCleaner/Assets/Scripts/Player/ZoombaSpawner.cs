@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ZoombaSpawner : MonoBehaviour 
 {
 	public static ZoombaSpawner spawner;
+	public Transform deathmessage;
 
 	void Start () 
 	{
@@ -23,7 +24,11 @@ public class ZoombaSpawner : MonoBehaviour
 	public void PlayerDied()
 	{
 		if (Scoreboard.board.lives > 0)
+		{
+			
 			StartCoroutine(Revive());
+			GameObject.FindGameObjectWithTag("deathMessage").SetActive(true);
+		}
 		else
 			StartCoroutine(GameOver());
 	}
@@ -54,6 +59,7 @@ public class ZoombaSpawner : MonoBehaviour
 
 		// Give invulnerability
 		newZoomba.GetComponent<PlayerController>().makeInvulnerable(5);
+		GameObject.FindGameObjectWithTag("deathMessage").SetActive(false);
 	}
 	IEnumerator GameOver()
 	{
