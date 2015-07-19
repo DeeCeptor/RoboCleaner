@@ -61,7 +61,7 @@ public class Scoreboard : MonoBehaviour
 
 			int minutes = (int) ((time) / 60.0f);
 			int seconds = (int) (time % 60);
-			int milliseconds = (int) ((time - seconds) * 100);
+			int milliseconds = (int) ((time - (minutes * 60) - seconds) * 100);
 			timeText.GetComponent<Text>().text = ("" + minutes).PadLeft(2, '0') + ":" + ("" + seconds).PadLeft(2, '0') + "." + ("" + milliseconds).PadLeft(2, '0');
 		
 			if (minutes > 4 && !greenShirt)

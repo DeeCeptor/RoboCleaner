@@ -3,10 +3,11 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 	public Transform target;
+	private GameObject endingScalingStars;
 
 	void Start () 
 	{
-	
+		endingScalingStars = GameObject.Find("Main Camera").transform.FindChild("Very Far Stars").gameObject;
 	}
 	
 	void FixedUpdate () 
@@ -19,7 +20,9 @@ public class CameraFollow : MonoBehaviour {
 		else if (Scoreboard.board.gameOver)
 		{
 			this.GetComponent<Camera>().orthographicSize += Time.deltaTime;
-			this.GetComponent<Camera>().orthographicSize = Mathf.Min(100, this.GetComponent<Camera>().orthographicSize);
+			this.GetComponent<Camera>().orthographicSize = Mathf.Min(75, this.GetComponent<Camera>().orthographicSize);
+
+			endingScalingStars.transform.localScale += new Vector3(1, 1, 0) * Time.deltaTime * 4;
 		}
 	}
 }

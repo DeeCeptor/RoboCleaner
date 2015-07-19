@@ -51,6 +51,7 @@ public class ZoombaSpawner : MonoBehaviour
 	{
 		Debug.Log("Starting game over sequence");
 		//FadeManager.fader.fadeOut(6, true);
+		GameObject.Find("Main Camera").transform.FindChild("Very Far Stars").gameObject.SetActive(true);
 
 		Scoreboard.board.gameOver = true;
 		Scoreboard.board.submitScore();
@@ -60,7 +61,6 @@ public class ZoombaSpawner : MonoBehaviour
 		// Only happens if we had a game over, so show the game over text
 		GameObject.Find("UICanvas/GameOver").GetComponent<Image>().enabled = true;
 		GameObject.Find("UICanvas/GameOver/QuitToMenuButton").SetActive(true);
-		GameObject.Find("Main Camera").transform.FindChild("Very Far Stars").gameObject.SetActive(true);
 
 		ShowLeaderboards();
 
