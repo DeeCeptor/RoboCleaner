@@ -4,10 +4,17 @@ using System.Collections;
 public class WarningStop : MonoBehaviour {
 	public float stopTime = 4f;
 	public float warpTime = 8f;
-	private float stopTimer;
+	private float warpTimer = 0f;
+	private float stopTimer = 0f;
+	public Transform toSpawn;
+	public float deadTime = 12f;
+	private float deadTimer = 0f;
+	private bool warpStart = false;
 	// Use this for initialization
 	void Start () {
 	stopTimer = Time.time + stopTime;
+	warpTimer = Time.time + warpTime;
+	deadTimer = Time.time + deadTime;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +29,17 @@ public class WarningStop : MonoBehaviour {
 			zoomScript.smokeEmitter.GetComponent<ParticleSystem>().Stop();
 			zoomScript.heatEmitter.GetComponent<ParticleSystem>().Stop();
 	}
+	
+	if(warpTimer<Time.time && warpStart == false)
+		{
+		warpStart = true;
+		Instantiate (toSpawn, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
+
+		}
+	if(deadTimer<Time.time)
+		{
+			Destroy(gameObject);
+		}
 	
 	}
 }
