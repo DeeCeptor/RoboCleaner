@@ -890,6 +890,11 @@ MonoBehaviour:
   lives: 1
   time: 0
   debrisGotten: 0
+  multiplierSounds:
+  - {fileID: 8300000, guid: def9ff1ffe7b8a946ad4cc3fc6ed1a4b, type: 3}
+  - {fileID: 8300000, guid: 33ce7d33f755c7345821dda0dc6944ff, type: 3}
+  - {fileID: 8300000, guid: c55b66a3b9866f94690be2a854932ed6, type: 3}
+  - {fileID: 8300000, guid: 98c49d90b799750448af916c661e7304, type: 3}
   livesText: {fileID: 160132}
   scoreText: {fileID: 130996}
   PauseMenu: {fileID: 179490}
@@ -898,7 +903,6 @@ MonoBehaviour:
   multiplierText: {fileID: 11442840}
   gameOver: 0
   multiplier: 1
-  multiplierLevel: 0
   died: 0
   lazored: 0
 --- !u!114 &11475660
