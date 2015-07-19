@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .417241365, g: .417241365, b: .417241365, a: 1}
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .866666734, g: .866666734, b: .866666734, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 454945d2634461f40aba648c2d822842, type: 3}
     m_FontSize: 30
@@ -671,8 +671,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .367647171, g: 1, b: 0, a: 1}
-    m_HighlightedColor: {r: 0, g: .960784316, b: .0282583889, a: 1}
+    m_NormalColor: {r: .831034482, g: .711878777, b: .354411751, a: 1}
+    m_HighlightedColor: {r: .831372619, g: .713725507, b: .352941185, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .80392164, g: .80392164, b: .80392164, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 454945d2634461f40aba648c2d822842, type: 3}
     m_FontSize: 30
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .80392164, g: .80392164, b: .80392164, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 454945d2634461f40aba648c2d822842, type: 3}
     m_FontSize: 30
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .191176534, g: 1, b: 0, a: 1}
+  m_Color: {r: .87843138, g: .87843138, b: .87843138, a: 1}
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1340,7 +1340,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 139, y: 0}
+  m_AnchoredPosition: {x: 139, y: -3.29999995}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22447564
@@ -1374,7 +1374,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 143.5, y: 1.5}
+  m_AnchoredPosition: {x: 143.5, y: -.699999988}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22454348
