@@ -15,7 +15,7 @@ public class ChangeSceneOnTime : MonoBehaviour {
 	{
 		if(timerToChange <= Time.time)
 		{
-			Application.LoadLevel("KevinLevel");
+			Application.LoadLevel("Menu");
 		}
 	}
 }

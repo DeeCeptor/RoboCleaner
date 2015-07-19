@@ -12,7 +12,7 @@ public class ChangeSceneOnButton : MonoBehaviour {
 	void FixedUpdate () {
 	if(Input.anyKey)
 	{
-	Application.LoadLevel("KevinLevel");
+	Application.LoadLevel("Menu");
 	}
 	
 	}
