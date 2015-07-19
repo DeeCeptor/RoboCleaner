@@ -26,6 +26,8 @@ public class Spawner : MonoBehaviour {
 	private int spawnNumber;
 	// Use this for initialization
 	void Start () {
+		blueShips = GameObject.FindGameObjectsWithTag("blue");
+		redShips = GameObject.FindGameObjectsWithTag("red");
 	}
 	
 	// Update is called once per frame
