@@ -43,6 +43,7 @@ MonoBehaviour:
   toSpawn: {fileID: 493548, guid: 8a23ff3717c04ce4c9b38628ab2d8111, type: 2}
   ZoombaList: []
   ZoombaNum: 3
+  menu: 0
 --- !u!114 &11496840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66a1719813f919438ef5f1291510aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathmessage: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
