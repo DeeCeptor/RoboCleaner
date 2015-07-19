@@ -68,11 +68,13 @@ public class RedShip : MonoBehaviour {
 		}
 		if(otherCollider.gameObject.tag == "Player" && otherCollider.gameObject.layer == 14 && ticketed == false)
 		{
-			StartCoroutine(Scoreboard.board.modifyScore(ticketScore, Scoreboard.ScoreType.TICKET));
-			ticketed = true;
+		ticketed = true;
+			int n_score = Scoreboard.board.getModifiedScore(ticketScore);
+			StartCoroutine(Scoreboard.board.modifyScore(n_score, Scoreboard.ScoreType.DEBRIS));
+			
 			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
-			score.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z -5);
-			score.GetComponent<TextMesh>().text = "fined " + ticketScore + " for littering";
+			score.transform.position = this.transform.position;
+			score.GetComponent<TextMesh>().text = "+" + n_score + " Ticketed for littering";
 		}
 		if(otherCollider.gameObject.tag == "Wall" && hitWall == false)
 		{
