@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Scoreboard : MonoBehaviour 
 {
@@ -8,11 +9,14 @@ public class Scoreboard : MonoBehaviour
 
 	public static Scoreboard board;
 
-	public int lives = 1;	// How many lives we got. Can't revive if we're out of lives.
+	public int lives = 2;	// How many lives we got. Can't revive if we're out of lives.
+	[HideInInspector]
 	public float time;
 
 	public int debrisGotten = 0;
 	private int shipsTicketed = 0;
+
+	public List<AudioClip> multiplierSounds;
 
 	public GameObject livesText;
 	public GameObject scoreText;
@@ -24,7 +28,7 @@ public class Scoreboard : MonoBehaviour
 	public bool gameOver = false;
 
 	public float multiplier = 1;
-	public float multiplierLevel = 0;
+	private float nextMultiplierSound = 2.0f;
 	private int score;	// Value >= 0
 
 	// TROPHIES
@@ -32,6 +36,7 @@ public class Scoreboard : MonoBehaviour
 	bool greenShirt, insurable, survivor = false;	// Time survival trophies
 	public bool died, lazored = false;	// Die once, Die from lazor beam
 
+	public 
 
 	void Start () 
 	{
@@ -130,6 +135,14 @@ public class Scoreboard : MonoBehaviour
 		cleaniplier.value = 0.4f;
 		multiplier += 0.2f;
 		setMultiplierText();
+
+		if (multiplier >= nextMultiplierSound && multiplierSounds.Count > 0)
+		{
+			// Play sound, increase amount we need for next multiplier sound
+			nextMultiplierSound++;
+			AudioSource.PlayClipAtPoint(multiplierSounds[0], Camera.main.transform.position);
+			multiplierSounds.RemoveAt(0);	// Remove the sound so we don't hear it again
+		}
 	}
 	public void lowerMultiplierLevel()
 	{
@@ -143,7 +156,7 @@ public class Scoreboard : MonoBehaviour
 	}
 	public void setMultiplierText()
 	{
-		multiplierText.text = multiplier + "X";
+		multiplierText.text = "X" + multiplier.ToString("0.00");
 	}
 
 
@@ -230,4 +243,28 @@ public class Scoreboard : MonoBehaviour
 	{
 		Debug.Log("Submit Score Callback worked? " + success);
 	}
+
+	/*
+	public class SoundPlayer
+	{
+		private float cooldown;
+
+		public void playSound()
+		{
+			// Play sound if we haven't heard it in a while
+			if (cooldown == 0)
+			{
+				// Play sound
+
+
+				cooldown = 15.0f;
+			}
+		}
+
+		public void Update(float deltaTime)
+		{
+			if (cooldown > 0)
+				cooldown = Mathf.Max(0, cooldown - deltaTime);
+		}
+	}*/
 }
