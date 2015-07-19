@@ -31,10 +31,14 @@ public class ZoombaSpawner : MonoBehaviour
 	{
 		Debug.Log("Died! Beginning spawning process");
 
-		FadeManager.fader.fadeOut(6, true);
+		//FadeManager.fader.fadeOut(6, true);
+
+		SceneFadeInOut.fader.EndScene();
 		// Wait a few seconds before reviving player
-		yield return new WaitForSeconds(3f);
-		FadeManager.fader.fadeIn(5);
+		yield return new WaitForSeconds(1.5f);
+
+		//FadeManager.fader.fadeIn(5);
+		SceneFadeInOut.fader.StartScene();
 
 		Debug.Log("Spawning new zoomba");
 
@@ -56,7 +60,7 @@ public class ZoombaSpawner : MonoBehaviour
 		Scoreboard.board.gameOver = true;
 		Scoreboard.board.submitScore();
 		// Wait a bit before kicking the player out
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(5f);
 
 		// Only happens if we had a game over, so show the game over text
 		GameObject.Find("UICanvas/GameOver").GetComponent<Image>().enabled = true;
@@ -72,7 +76,7 @@ public class ZoombaSpawner : MonoBehaviour
 	
 	public void ShowLeaderboards()
 	{
-		if (GameJolt.API.Manager.Instance != null && GameJolt.API.Manager.Instance.CurrentUser != null)	// Only submit score if we're logged in
+		if (GameJolt.API.Manager.Instance != null)	// Only submit score if we're logged in
 			GameJolt.UI.Manager.Instance.ShowLeaderboards(leaderBoardCallback);
 	}
 	public void leaderBoardCallback(bool success)

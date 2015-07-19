@@ -147,7 +147,8 @@ public class Scoreboard : MonoBehaviour
 	public void unlockTrophy(int trophyID)
 	{
 		// First check if we already have unlocked this trophy
-		GameJolt.API.Trophies.Get(trophyID, getTrophy);
+		if (GameJolt.API.Manager.Instance != null && GameJolt.API.Manager.Instance.CurrentUser != null)
+			GameJolt.API.Trophies.Get(trophyID, getTrophy);
 	}
 	public void getTrophy(GameJolt.API.Objects.Trophy trophy)
 	{
