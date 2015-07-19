@@ -13,11 +13,26 @@ public class ZoombaSpawner : MonoBehaviour
 	void Start () 
 	{
 		spawner = this;
+
+		StartCoroutine(timeToClean());
 	}
 	
 	void Update () 
 	{
 	
+	}
+
+	IEnumerator timeToClean()
+	{
+		yield return new WaitForSeconds(1.0f);
+
+		GameObject timeToClean = GameObject.Find("UICanvas").transform.FindChild("TimeToClean").gameObject;
+		timeToClean.GetComponent<Image>().enabled = true;
+		timeToClean.GetComponent<AudioSource>().Play();
+
+		yield return new WaitForSeconds(1.8f);
+
+		timeToClean.GetComponent<Image>().enabled = false;
 	}
 
 
@@ -27,7 +42,6 @@ public class ZoombaSpawner : MonoBehaviour
 		{
 			
 			StartCoroutine(Revive());
-			GameObject.FindGameObjectWithTag("deathMessage").SetActive(true);
 		}
 		else
 			StartCoroutine(GameOver());
@@ -35,10 +49,6 @@ public class ZoombaSpawner : MonoBehaviour
 	IEnumerator Revive()
 	{
 		Debug.Log("Died! Beginning spawning process");
-
-		GameObject timeToClean = GameObject.Find("UICanvas").transform.FindChild("TimeToClean").gameObject;
-		timeToClean.GetComponent<Image>().enabled = true;
-		timeToClean.GetComponent<AudioSource>().Play();
 
 		SceneFadeInOut.fader.EndScene();
 
@@ -51,7 +61,8 @@ public class ZoombaSpawner : MonoBehaviour
 		Debug.Log("Spawning new zoomba");
 
 		Scoreboard.board.modifyLivesBy(-1);	// Remove a life
-		timeToClean.GetComponent<Image>().enabled = false;
+
+		StartCoroutine(timeToClean());
 
 		// Create a new Zoomba at this position
 		GameObject newZoomba = (GameObject) Instantiate((GameObject) Resources.Load("Zoomba3000", typeof(GameObject)), this.transform.position, Quaternion.identity);
@@ -59,7 +70,6 @@ public class ZoombaSpawner : MonoBehaviour
 
 		// Give invulnerability
 		newZoomba.GetComponent<PlayerController>().makeInvulnerable(5);
-		GameObject.FindGameObjectWithTag("deathMessage").SetActive(false);
 	}
 	IEnumerator GameOver()
 	{
@@ -79,7 +89,6 @@ public class ZoombaSpawner : MonoBehaviour
 		ShowLeaderboards();
 
 		Debug.Log("GAME OVER!");
-		//Application.LoadLevel("Menu");
 	}
 
 
