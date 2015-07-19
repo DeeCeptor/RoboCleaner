@@ -46,11 +46,9 @@ public class Debris : MonoBehaviour
 			int n_score = Scoreboard.board.getModifiedScore(debrisScore);
 			StartCoroutine(Scoreboard.board.modifyScore(n_score, Scoreboard.ScoreType.DEBRIS));
 
-			GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
-			score.transform.position = this.transform.position;
-			score.GetComponent<Rigidbody2D>().velocity = Vector3.Normalize(pulledTowards.transform.position - this.transform.position) * 2;
-			score.GetComponent<TextMesh>().text = "+" + n_score;
-
+			// Create text to show the + score we get
+			Scoreboard.board.spawnMovingText(this.transform.position, "+" + n_score,
+			                                 Vector3.Normalize(pulledTowards.transform.position - this.transform.position) * 2);	
 			GameObject.Destroy(this.gameObject);
 		}
 		else if (other.tag == "AIZoomba")

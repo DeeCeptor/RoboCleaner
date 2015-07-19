@@ -147,6 +147,15 @@ public class Scoreboard : MonoBehaviour
 	}
 
 
+	public void spawnMovingText(Vector3 location, string message, Vector3 velocity)
+	{
+		GameObject score = Instantiate(Resources.Load("FloatingScore", typeof(GameObject))) as GameObject;
+		score.transform.position = location;
+		score.GetComponent<Rigidbody2D>().velocity = velocity;
+		score.GetComponent<TextMesh>().text = message;
+	}
+	
+	
 	public IEnumerator modifyScore(int amount, ScoreType type)
 	{
 		score += amount;
