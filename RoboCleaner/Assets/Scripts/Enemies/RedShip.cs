@@ -13,6 +13,7 @@ public class RedShip : MonoBehaviour {
 	public int rotate;
 	public int ticketScore = 100;
 	public bool ticketed = false;
+	public int partsCount = 4;
 	// Use this for initialization
 	void Start () {
 	
@@ -81,6 +82,53 @@ public class RedShip : MonoBehaviour {
 
 	public void Die()
 	{
+		GameObject destroyedShip = this.transform.FindChild("DestroyedShip").gameObject;
+		if(destroyedShip!=null)
+		{
+		destroyedShip.SetActive(true);
+		
+		// Split off both halves
+		GameObject Part1 = destroyedShip.transform.FindChild("Part1").gameObject;
+		GameObject Part2 = destroyedShip.transform.FindChild("Part2").gameObject;
+		
+		Part1.transform.parent = null;
+		Part2.transform.parent = null;
+		// Send them flying and rotating in randomish directions
+		Vector3 cur_velocity = this.GetComponent<Rigidbody2D>().velocity;
+		float cur_angular_velocity = 0;
+		Part1.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+		Part2.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+		Part1.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+		Part2.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+		
+		if(partsCount > 2)
+		{
+			GameObject Part3 = destroyedShip.transform.FindChild("Part3").gameObject;
+			GameObject Part4 = destroyedShip.transform.FindChild("Part4").gameObject;
+			
+			Part3.transform.parent = null;
+			Part4.transform.parent = null;
+			Part3.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+			Part4.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+			Part3.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+			Part4.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+		}
+		
+			if(partsCount > 4)
+			{
+				GameObject Part5 = destroyedShip.transform.FindChild("Part5").gameObject;
+				GameObject Part6 = destroyedShip.transform.FindChild("Part6").gameObject;
+				
+				Part5.transform.parent = null;
+				Part6.transform.parent = null;
+				Part5.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+				Part6.GetComponent<Rigidbody2D>().velocity = cur_velocity + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2));
+				Part5.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+				Part6.GetComponent<Rigidbody2D>().angularVelocity = cur_angular_velocity + Random.Range(-25, 25);
+			}
+		
+		GameObject.Destroy(this.gameObject);
+		}
 		Destroy(gameObject);
 	}
 
