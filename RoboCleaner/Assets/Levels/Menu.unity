@@ -1442,6 +1442,7 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 12807618}
+<<<<<<< HEAD
     - target: {fileID: 476524, guid: 73d69cb28dea07641a072dd2b51d152d, type: 2}
       propertyPath: m_LocalScale.x
       value: 33.7242661
@@ -1502,6 +1503,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.13
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 8292728, guid: 73d69cb28dea07641a072dd2b51d152d, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ee659f89ffb85b4fb4b0e25a7fbc9da, type: 3}
+>>>>>>> 72dfed24cc9211424af6cdce2e424a0bd691288f
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73d69cb28dea07641a072dd2b51d152d, type: 2}
   m_IsPrefabParent: 0
