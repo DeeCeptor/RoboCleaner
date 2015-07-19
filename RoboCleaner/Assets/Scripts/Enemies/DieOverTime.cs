@@ -13,7 +13,7 @@ public float LifeSpan = 4f;
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		if(timerToDie <= Time.time && (!this.GetComponent<Renderer>().isVisible || Scoreboard.board.gameOver))
+		if(timerToDie <= Time.time && (!this.GetComponent<Renderer>().isVisible || (Scoreboard.board != null && Scoreboard.board.gameOver))
 		{
 			Debug.Log("Not seen");
 			Destroy(gameObject);
