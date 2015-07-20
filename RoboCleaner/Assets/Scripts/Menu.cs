@@ -15,11 +15,18 @@ public class Menu : MonoBehaviour
 
 	void Start () 
 	{
-		isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
+		StartCoroutine(checkLogin());
+	}
 
+	IEnumerator checkLogin()
+	{
+		yield return new WaitForSeconds(.2f);
+
+		isSignedIn = (GameJolt.API.Manager.Instance.CurrentUser != null);
+		
 		if (isSignedIn)
 			GameJolt.UI.Manager.Instance.QueueNotification("Logged in with GameJolt account");
-
+		
 		Debug.Log("Signed in? " + isSignedIn);
 	}
 
