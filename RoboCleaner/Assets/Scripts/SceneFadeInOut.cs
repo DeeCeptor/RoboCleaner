@@ -13,14 +13,20 @@ public class SceneFadeInOut : MonoBehaviour
 
 	public static SceneFadeInOut fader;
 
-	void Awake ()
+	void Start ()
 	{
 		// Set the texture so that it is the the size of the screen and covers it.
 		//guiTexture.sc = new Rect(0f, 0f, Screen.width, Screen.height);
 		guiTexture.enabled = true;
 		fader = this;
 
+		Debug.Log ("Starting fade");
 		StartScene();
+	}
+
+	void Awake ()
+	{
+
 	}
 	
 	void Update()

@@ -116,9 +116,20 @@ public class Scoreboard : MonoBehaviour
 
 	public void ReturnToMenu()
 	{
-		Application.LoadLevel("Menu");
+		Time.timeScale = 1;
+		StartCoroutine(loadMenu());
 	}
-	
+	public IEnumerator loadMenu()
+	{
+		GameObject[] objs = GameObject.FindObjectsOfType<GameObject>();
+		Debug.Log(objs.Length);
+		for (int x = 0; x < objs.Length; x++) {
+			GameObject.DestroyImmediate(objs[x]);
+		}
+		Application.LoadLevel ("Menu");
+		yield return new WaitForSeconds(0f);
+	}
+
 
 	public void Unpause()
 	{
@@ -308,28 +319,4 @@ public class Scoreboard : MonoBehaviour
 	{
 		Debug.Log("Submit Tickets Callback worked? " + success);
 	}
-
-	/*
-	public class SoundPlayer
-	{
-		private float cooldown;
-
-		public void playSound()
-		{
-			// Play sound if we haven't heard it in a while
-			if (cooldown == 0)
-			{
-				// Play sound
-
-
-				cooldown = 15.0f;
-			}
-		}
-
-		public void Update(float deltaTime)
-		{
-			if (cooldown > 0)
-				cooldown = Mathf.Max(0, cooldown - deltaTime);
-		}
-	}*/
 }
