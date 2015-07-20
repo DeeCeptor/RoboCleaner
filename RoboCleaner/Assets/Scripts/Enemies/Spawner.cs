@@ -104,8 +104,8 @@ public class Spawner : MonoBehaviour {
 			}
 			
 		}
-			
-		}
+		
+		
 		if(difficultyTimer < Time.time)
 		{
 			difficultyTimer = difficultyTimer + difficultyincrements;
@@ -117,5 +117,15 @@ public class Spawner : MonoBehaviour {
 			corvetteChanceStart = corvetteChanceStart + corvetteIncrement;
 		}
 		
+	}
+	
+	
+		
+	}
+	
+	public void Refresh(){
+		frigateChanceStart = 1f;
+		spawnDelay = 5f;
+		corvetteChanceStart = 11f;
 	}
 }

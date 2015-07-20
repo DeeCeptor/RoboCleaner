@@ -34,6 +34,7 @@ public class Menu : MonoBehaviour
 	}
 	public void StartGame()
 	{
+		GameObject.Find("Spawner").GetComponent<Spawner>().Refresh();
 		StartCoroutine(loadGame());
 	}
 	public IEnumerator loadGame()
@@ -43,6 +44,7 @@ public class Menu : MonoBehaviour
 		for (int x = 0; x < objs.Length; x++) {
 			GameObject.DestroyImmediate(objs[x]);
 		}
+		
 		Application.LoadLevel ("KevinLevel");
 		yield return new WaitForSeconds(0f);
 	}
