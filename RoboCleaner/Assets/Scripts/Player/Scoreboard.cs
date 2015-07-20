@@ -121,11 +121,12 @@ public class Scoreboard : MonoBehaviour
 	}
 	public IEnumerator loadMenu()
 	{
+		/*
 		GameObject[] objs = GameObject.FindObjectsOfType<GameObject>();
 		Debug.Log(objs.Length);
 		for (int x = 0; x < objs.Length; x++) {
 			GameObject.DestroyImmediate(objs[x]);
-		}
+		}*/
 		Application.LoadLevel ("Menu");
 		yield return new WaitForSeconds(0f);
 	}
@@ -318,5 +319,7 @@ public class Scoreboard : MonoBehaviour
 	void submitTicketsCallback(bool success)
 	{
 		Debug.Log("Submit Tickets Callback worked? " + success);
+		if (success)
+			GameJolt.UI.Manager.Instance.QueueNotification("Score uploaded to leaderboard!");
 	}
 }
